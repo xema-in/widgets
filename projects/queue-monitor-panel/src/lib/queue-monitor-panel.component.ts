@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerConnection } from 'jema';
 
 @Component({
   selector: 'xe-queue-monitor-panel',
