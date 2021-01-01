@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { QueueMonitorPanelModule } from 'queue-monitor-panel';
+import { TeamMonitorPanelModule } from 'team-monitor-panel';
 
 import { AppComponent } from './app.component';
 
@@ -8,7 +10,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    QueueMonitorPanelModule,
+    TeamMonitorPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
