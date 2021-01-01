@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
 
   title = 'test';
   serverConnection: ServerConnection;
+  connected = false;
 
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
     const auth = new Authenticator(backend);
     auth.getAuthToken({ username: 'user', password: 'N0P@ssword' }).subscribe(
       (data: any) => {
+        this.connected = true;
         this.serverConnection = new ServerConnection(backend, data.auth_token);
         this.serverConnection.connect();
       }
