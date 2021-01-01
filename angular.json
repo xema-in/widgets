@@ -158,6 +158,46 @@
           }
         }
       }
+    },
+    "queue-monitor-panel": {
+      "projectType": "library",
+      "root": "projects/queue-monitor-panel",
+      "sourceRoot": "projects/queue-monitor-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/queue-monitor-panel/tsconfig.lib.json",
+            "project": "projects/queue-monitor-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/queue-monitor-panel/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/queue-monitor-panel/src/test.ts",
+            "tsConfig": "projects/queue-monitor-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/queue-monitor-panel/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/queue-monitor-panel/tsconfig.lib.json",
+              "projects/queue-monitor-panel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "test"

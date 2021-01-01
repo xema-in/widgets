@@ -19,6 +19,10 @@
       "team-monitor-panel": [
         "dist/team-monitor-panel/team-monitor-panel",
         "dist/team-monitor-panel"
+      ],
+      "queue-monitor-panel": [
+        "dist/queue-monitor-panel/queue-monitor-panel",
+        "dist/queue-monitor-panel"
       ]
     }
   }
