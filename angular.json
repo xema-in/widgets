@@ -118,6 +118,46 @@
           }
         }
       }
+    },
+    "team-monitor-panel": {
+      "projectType": "library",
+      "root": "projects/team-monitor-panel",
+      "sourceRoot": "projects/team-monitor-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/team-monitor-panel/tsconfig.lib.json",
+            "project": "projects/team-monitor-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/team-monitor-panel/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-monitor-panel/src/test.ts",
+            "tsConfig": "projects/team-monitor-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/team-monitor-panel/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/team-monitor-panel/tsconfig.lib.json",
+              "projects/team-monitor-panel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "test"
