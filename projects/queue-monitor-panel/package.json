@@ -4,6 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^11.0.5",
     "@angular/core": "^11.0.5",
+    "bootstrap": "^4.5.3",
     "jema": "0.0.29"
   },
   "dependencies": {

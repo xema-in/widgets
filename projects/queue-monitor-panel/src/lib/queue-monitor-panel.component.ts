@@ -4,20 +4,8 @@ import { QueueUpdate } from 'jema/lib/_interfaces/queue-update';
 
 @Component({
   selector: 'xe-queue-monitor-panel',
-  template: `
-    <div class="row">
-      <div class="col-sm-2" *ngFor="let queueUpdate of queueUpdates">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{queueUpdate.size}}</h5>
-            <p class="card-text">{{queueUpdate.queue}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  `,
-  styles: [
-  ]
+  templateUrl: './queue-monitor-panel.component.html',
+  styleUrls: ['./queue-monitor-panel.component.scss']
 })
 export class QueueMonitorPanelComponent implements OnInit {
   @Input() serverConnection: ServerConnection;
@@ -28,7 +16,6 @@ export class QueueMonitorPanelComponent implements OnInit {
   ngOnInit(): void {
     this.serverConnection.queueUpdates.subscribe((queueUpdates) => {
       this.queueUpdates = queueUpdates;
-      console.log('hello');
     });
 
   }
