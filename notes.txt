@@ -1,5 +1,13 @@
 ng build queue-monitor-panel
 ng build queue-monitor-panel --prod
 
+cd dist/queue-monitor-panel && npm publish --dry-run
+cd dist/queue-monitor-panel && npm publish --access public
+
+======
+
 ng build team-monitor-panel
 ng build team-monitor-panel --prod
+
+cd dist/team-monitor-panel && npm publish --dry-run
+cd dist/team-monitor-panel && npm publish --access public
