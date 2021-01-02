@@ -1,6 +1,11 @@
 {
   "name": "queue-monitor-panel",
   "version": "0.0.1",
+  "description": "Xema Queue Monitor Panel",
+  "author": {
+    "name": "Sreenivasa Reddy Inukollu",
+    "email": "vasu@xema.in"
+  },
   "peerDependencies": {
     "@angular/common": "^11.0.5",
     "@angular/core": "^11.0.5",
