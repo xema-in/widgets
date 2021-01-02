@@ -17,7 +17,6 @@ export class QueueMonitorPanelComponent implements OnInit {
     this.serverConnection.queueUpdates.subscribe((queueUpdates) => {
       this.queueUpdates = queueUpdates;
     });
-
   }
 
 }
