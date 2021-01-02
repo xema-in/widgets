@@ -1,5 +1,5 @@
 {
-  "name": "queue-monitor-panel",
+  "name": "@xema/queue-monitor-panel",
   "version": "0.0.1",
   "description": "Xema Queue Monitor Panel",
   "author": {
