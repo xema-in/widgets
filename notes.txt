@@ -1,0 +1,5 @@
+ng build queue-monitor-panel
+ng build queue-monitor-panel --prod
+
+ng build team-monitor-panel
+ng build team-monitor-panel --prod
