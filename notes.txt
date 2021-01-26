@@ -1,17 +1,27 @@
-ng build queue-monitor-panel
-ng build queue-monitor-panel --prod
 
-cd dist/queue-monitor-panel && npm publish --dry-run
-cd dist/queue-monitor-panel && npm publish --access public
-
+Develop
 ======
-
-ng build team-monitor-panel
-ng build team-monitor-panel --prod
-
-cd dist/team-monitor-panel && npm publish --dry-run
-cd dist/team-monitor-panel && npm publish --access public
-
-======
-
+ng build queue-monitor-panel --watch
+ng build team-monitor-panel --watch
 ng serve test
+======
+
+
+publish
+======
+cd projects/queue-monitor-panel
+npm version patch
+cd ../..
+ng build queue-monitor-panel --prod
+cd dist/queue-monitor-panel
+npm publish --access public
+cd ../..
+======
+cd projects/team-monitor-panel
+npm version patch
+cd ../..
+ng build team-monitor-panel --prod
+cd dist/team-monitor-panel
+npm publish --access public
+cd ../..
+======
