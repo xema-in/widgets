@@ -25,3 +25,9 @@ cd dist/team-monitor-panel
 npm publish --access public
 cd ../..
 ======
+
+
+
+Merge
+======
+git pull https://github.com/xema-in/live-view.git main
