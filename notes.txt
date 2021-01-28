@@ -29,5 +29,24 @@ cd ../..
 
 
 Merge
-======
+=====
 git pull https://github.com/xema-in/live-view.git main
+
+
+Project Notes
+=============
+
+Workspace Creation
+------------------
+ng new widgets --create-application false
+
+
+Test Project
+------------
+ng generate application test
+
+
+Library Project
+---------------
+ng generate library queue-monitor-panel
+ng generate library team-monitor-panel
