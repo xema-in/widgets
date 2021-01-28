@@ -4,17 +4,17 @@ import { QueueMonitorPanelModule } from 'queue-monitor-panel';
 import { TeamMonitorPanelModule } from 'team-monitor-panel';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     QueueMonitorPanelModule,
-    TeamMonitorPanelModule
+    TeamMonitorPanelModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

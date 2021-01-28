@@ -1,1 +1,33 @@
-@import "node_modules/bootstrap/scss/bootstrap"
+@import "node_modules/bootstrap/scss/bootstrap";
+
+table {
+  width: 100%;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+// td,
+// th {
+//   width: 25%;
+// }
+
+.mat-row:hover {
+  background-color: whitesmoke;
+}
+
+th.mat-header-cell {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+}
+
+.mat-cell,
+.mat-footer-cell {
+  font-size: 16px;
+}
