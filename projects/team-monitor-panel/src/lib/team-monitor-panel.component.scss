@@ -31,3 +31,14 @@ th.mat-header-cell {
 .mat-footer-cell {
   font-size: 16px;
 }
+
+.badge {
+  font-size: 100% !important;
+  font-weight: 500 !important;
+}
+
+.mat-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center !important;
+}

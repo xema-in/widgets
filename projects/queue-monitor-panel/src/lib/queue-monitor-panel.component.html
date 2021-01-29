@@ -1,10 +1,16 @@
-<div class="container row">
-  <div class="col-sm-2" *ngFor="let queueUpdate of queueUpdates">
-    <div class="card" *ngIf="queueUpdate.size > 0">
-      <div class="card-body">
-        <h5 class="card-title">{{queueUpdate.size}}</h5>
-        <p class="card-text">{{queueUpdate.queue}}</p>
-      </div>
+<div class="row">
+  <ng-container *ngFor="let queueUpdate of queueUpdates">
+    <div class="col-sm-2 mt-2" *ngIf="queueUpdate.size > 0">
+      <mat-card class="mat-elevation-z8">
+        <mat-card-content>
+          <p class="h6">{{queueUpdate.queue}}</p>
+        </mat-card-content>
+        <mat-card-header>
+          <mat-card-title>
+            <p class="h4">{{queueUpdate.size}}</p>
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
     </div>
-  </div>
+  </ng-container>
 </div>
