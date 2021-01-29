@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [TeamMonitorPanelComponent],
@@ -36,6 +37,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatToolbarModule,
     MatCardModule,
     MatChipsModule,
+    MatTooltipModule,
   ],
   exports: [TeamMonitorPanelComponent],
 })

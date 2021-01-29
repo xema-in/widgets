@@ -1,18 +1,29 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation,
+} from '@angular/core';
 import { ServerConnection } from 'jema';
 import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import * as XLSX from 'xlsx';
+import * as moment from 'moment';
 
 @Component({
   selector: 'xe-team-monitor-panel',
   templateUrl: './team-monitor-panel.component.html',
   styleUrls: ['./team-monitor-panel.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TeamMonitorPanelComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild('TABLE') table: ElementRef;
 
   dataSource: any;
   displayedColumns = [
@@ -70,5 +81,16 @@ export class TeamMonitorPanelComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  ExportTOExcel() {
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
+      this.table.nativeElement
+    );
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    const now = moment().format('MMMM Do YYYY, h:mm:ss a');
+    /* save to file */
+    XLSX.writeFile(wb, 'AgentsStatus_' + now + '.xlsx');
   }
 }
