@@ -7,9 +7,17 @@
         </mat-card-content>
         <mat-card-header>
           <mat-card-title>
-            <p class="h4">{{queueUpdate.size}}</p>
+            <span>{{queueUpdate.size}}</span>
           </mat-card-title>
         </mat-card-header>
+        <mat-card-actions>
+          <div class="float-right">
+            <mat-card-subtitle *ngIf="queueUpdate.size > 0">
+              <p class="h6">{{queueUpdate.maxWaitTimestamp  | timeago:true}}</p>
+            </mat-card-subtitle>
+          </div>
+          <br>
+        </mat-card-actions>
       </mat-card>
     </div>
   </ng-container>
