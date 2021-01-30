@@ -221,11 +221,11 @@
       <td mat-cell *matCellDef="let row">{{row.name}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="AgentId">
+    <!-- <ng-container matColumnDef="AgentId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Id</th>
       <td mat-cell *matCellDef="let row">
         {{row.agentId}} <span *ngIf="row.waitingForBreak" class="badge badge-warning">Need Break</span></td>
-    </ng-container>
+    </ng-container> -->
 
     <ng-container matColumnDef="Device">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Device</th>
@@ -234,25 +234,31 @@
         </span></td>
     </ng-container>
 
-    <ng-container matColumnDef="CallType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Call Type</th>
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
       <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
-          <span class="badge badge-{{row.deviceStatusCss}}">{{row.deviceStatus}}</span>
+          <!-- <span class="badge badge-{{row.deviceStatusCss}}">{{row.deviceStatus}}</span> -->
+          <span *ngIf="row.deviceStatus == 'In Call'" class="badge badge-{{row.deviceStatusCss}}">Talking</span>
+          <span *ngIf="row.deviceStatus == 'Idle' && row.agentStatus != 'In Break'"
+            class="badge badge-{{row.deviceStatusCss}}">Ready</span>
+          <span *ngIf="row.deviceStatus == 'Offline'" class="badge badge-{{row.deviceStatusCss}}">Offline</span>
+          <span *ngIf="row.agentStatus == 'In Break' && row.deviceStatus == 'Idle'" class="badge badge-warning">Not
+            Ready</span>
         </span></td>
     </ng-container>
 
-    <ng-container matColumnDef="CallDuration">
+    <!-- <ng-container matColumnDef="CallDuration">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Call Duration</th>
       <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
           <span *ngIf="row.deviceStatus === 'In Call'" class="badge badge-danger">{{row.currentCallTimestamp |
             timeago:true}}</span>
         </span></td>
-    </ng-container>
+    </ng-container> -->
 
-    <ng-container matColumnDef="Caller">
+    <!-- <ng-container matColumnDef="Caller">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Caller</th>
       <td mat-cell *matCellDef="let row">{{row.caller}}</td>
-    </ng-container>
+    </ng-container> -->
 
     <ng-container matColumnDef="Status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
@@ -266,25 +272,27 @@
           <span class="badge badge-warning">{{row.breakTimestamp | timeago:true}}</span>
         </span>
         <span *ngIf="row.agentStatus === 'Busy' || row.agentStatus === 'Wrap Up'">
-          <span class="badge badge-warning">Total: {{row.queueCallTimestamp | timeago:true}}</span>
+          <!-- <span class="badge badge-warning">{{row.queueCallTimestamp | timeago:true}}</span> -->
+          <span class="badge badge-secondary">{{row.queueCallTimestamp | timeago:true}}</span>
         </span>
-        <span *ngIf="row.agentStatus === 'Wrap Up'">
+        <!-- <span *ngIf="row.agentStatus === 'Wrap Up'">
           &nbsp;
           <span class="badge badge-warning">Wrap: {{row.wrapUpTimestamp | timeago:true}}</span>
-        </span></td>
+        </span> -->
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="QueueName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Queue</th>
       <td mat-cell *matCellDef="let row"> {{row.queueName}}</td>
     </ng-container>
-    <ng-container matColumnDef="CallUniqueId">
+    <!-- <ng-container matColumnDef="UniqueId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>UniqueId</th>
       <td mat-cell *matCellDef="let row">
         {{row.callUniqueId}}</td>
-    </ng-container>
+    </ng-container> -->
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
