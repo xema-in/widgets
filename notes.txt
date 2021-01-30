@@ -30,7 +30,7 @@ cd ../..
 
 Merge
 =====
-git pull https://github.com/xema-in/live-view.git main
+git pull https://github.com/xema-in/widgets.git main
 
 
 Project Notes
