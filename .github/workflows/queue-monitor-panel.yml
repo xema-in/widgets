@@ -9,11 +9,11 @@ jobs:
         id: filter
         with:
           filters: |
-            ${{GITHUB_WORKFLOW}}:
+            package-json:
               - 'projects/${{GITHUB_WORKFLOW}}/package.json'
 
   publish:
-    if: ${{ changed.steps.filter.${{GITHUB_WORKFLOW}} == 'true' }}
+    if: ${{ changed.steps.filter.package-json == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
