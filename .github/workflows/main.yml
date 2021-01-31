@@ -1,0 +1,35 @@
+name: Publish Node Packages
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - run: npm ci
+      
+      - uses: dorny/paths-filter@v2.2.1
+        id: filter
+        with:
+          filters: |
+            queue-monitor-panel:
+              - 'projects/queue-monitor-panel/package.json'
+
+      - name: Publish Queue Monitor Panel
+        if: ${{ steps.filter.outputs.queue-monitor-panel == 'true' }}
+        run: |
+          ng build queue-monitor-panel
+
