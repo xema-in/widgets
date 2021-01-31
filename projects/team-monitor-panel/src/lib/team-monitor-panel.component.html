@@ -1,82 +1,3 @@
-<!-- <table class="table">
-  <tbody>
-    <tr>
-      <td>
-        <h4>Total <span class="badge badge-secondary">{{total}}</span></h4>
-      </td>
-      <td>
-        <h4>In Break <span class="badge badge-secondary">{{break}}</span></h4>
-      </td>
-      <td>
-        <h4>In Call <span class="badge badge-danger">{{inCall}}</span></h4>
-      </td>
-      <td>
-        <h4>Wrap Up <span class="badge badge-warning">{{wrapUp}}</span></h4>
-      </td>
-      <td>
-        <h4>Idle <span class="badge badge-success">{{idle}}</span></h4>
-      </td>
-      <td>
-        <h4>Offline <span class="badge badge-secondary">{{offline}}</span></h4>
-      </td>
-    </tr>
-  </tbody>
-</table> -->
-
-<!-- <table class="table table-striped table-hover">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">
-      </th>
-      <th scope="col">Name</th>
-      <th scope="col">Device</th>
-      <th scope="col">Caller</th>
-      <th>Status</th>
-      <th>Other</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let member of teamMemberStates">
-      <th scope="row">
-        <div mat-card-avatar class="agent-image"></div>
-      </th>
-      <td>
-        {{member.name}} <br />
-        {{member.agentId}} <span *ngIf="member.waitingForBreak" class="badge badge-warning">Need Break</span>
-      </td>
-      <td>
-        <span *ngIf="member.device !== ''">
-          {{member.device}} <span class="badge badge-{{member.deviceStatusCss}}">{{member.deviceStatus}}</span><br />
-          <span *ngIf="member.deviceStatus === 'In Call'" class="badge badge-danger">{{member.currentCallTimestamp |
-            timeago:true}}</span>
-        </span>
-      </td>
-      <td>
-        {{member.caller}}
-      </td>
-      <td>
-        {{member.agentStatus}} <br />
-        <span *ngIf="member.agentStatus === 'In Break'">
-          <span class="badge badge-warning">{{member.breakTimestamp | timeago:true}}</span>
-        </span>
-        <span *ngIf="member.agentStatus === 'Busy' || member.agentStatus === 'Wrap Up'">
-          <span class="badge badge-warning">Total: {{member.queueCallTimestamp | timeago:true}}</span>
-        </span>
-        <span *ngIf="member.agentStatus === 'Wrap Up'">
-          &nbsp;
-          <span class="badge badge-warning">Wrap: {{member.wrapUpTimestamp | timeago:true}}</span>
-        </span>
-      </td>
-      <td>
-        {{member.queueName}} <br />
-        {{member.callUniqueId}}
-      </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table> -->
 <br>
 <div class="row">
   <div class="col-md-2">
@@ -221,12 +142,6 @@
       <td mat-cell *matCellDef="let row">{{row.name}}</td>
     </ng-container>
 
-    <!-- <ng-container matColumnDef="AgentId">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Id</th>
-      <td mat-cell *matCellDef="let row">
-        {{row.agentId}} <span *ngIf="row.waitingForBreak" class="badge badge-warning">Need Break</span></td>
-    </ng-container> -->
-
     <ng-container matColumnDef="Device">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Device</th>
       <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
@@ -237,29 +152,14 @@
     <ng-container matColumnDef="State">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
       <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
-          <!-- <span class="badge badge-{{row.deviceStatusCss}}">{{row.deviceStatus}}</span> -->
-          <span *ngIf="row.deviceStatus == 'In Call'" class="badge badge-{{row.deviceStatusCss}}">Talking</span>
-          <span *ngIf="row.deviceStatus == 'Idle' && row.agentStatus != 'In Break'"
-            class="badge badge-{{row.deviceStatusCss}}">Ready</span>
-          <span *ngIf="row.deviceStatus == 'Offline'" class="badge badge-{{row.deviceStatusCss}}">Offline</span>
-          <span *ngIf="row.agentStatus == 'In Break' && row.deviceStatus == 'Idle'" class="badge badge-warning">Not
+          <span *ngIf="row.deviceStatus == 'In Call'" class="badge badge-danger">Talking</span>
+          <span *ngIf="row.deviceStatus == 'Idle' && row.agentStatus != 'In Break' && row.agentStatus != 'Disconnected'"
+            class="badge badge-success">Ready</span>
+          <span *ngIf="row.deviceStatus == 'Offline'" class="badge badge-secondary">Offline</span>
+          <span *ngIf="row.agentStatus == 'In Break' && row.deviceStatus == 'Idle'" class="badge badge-secondary">Not
             Ready</span>
         </span></td>
     </ng-container>
-
-    <!-- <ng-container matColumnDef="CallDuration">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Call Duration</th>
-      <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
-          <span *ngIf="row.deviceStatus === 'In Call'" class="badge badge-danger">{{row.currentCallTimestamp |
-            timeago:true}}</span>
-        </span></td>
-    </ng-container> -->
-
-    <!-- <ng-container matColumnDef="Caller">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Caller</th>
-      <td mat-cell *matCellDef="let row">{{row.caller}}</td>
-    </ng-container> -->
-
     <ng-container matColumnDef="Status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
       <td mat-cell *matCellDef="let row">
@@ -269,16 +169,11 @@
     <ng-container matColumnDef="Duration">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
       <td mat-cell *matCellDef="let row"><span *ngIf="row.agentStatus === 'In Break'">
-          <span class="badge badge-warning">{{row.breakTimestamp | timeago:true}}</span>
+          <span class="badge badge-secondary">{{row.breakTimestamp | timeago:true}}</span>
         </span>
         <span *ngIf="row.agentStatus === 'Busy' || row.agentStatus === 'Wrap Up'">
-          <!-- <span class="badge badge-warning">{{row.queueCallTimestamp | timeago:true}}</span> -->
           <span class="badge badge-secondary">{{row.queueCallTimestamp | timeago:true}}</span>
         </span>
-        <!-- <span *ngIf="row.agentStatus === 'Wrap Up'">
-          &nbsp;
-          <span class="badge badge-warning">Wrap: {{row.wrapUpTimestamp | timeago:true}}</span>
-        </span> -->
       </td>
     </ng-container>
 
@@ -286,11 +181,6 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Queue</th>
       <td mat-cell *matCellDef="let row"> {{row.queueName}}</td>
     </ng-container>
-    <!-- <ng-container matColumnDef="UniqueId">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>UniqueId</th>
-      <td mat-cell *matCellDef="let row">
-        {{row.callUniqueId}}</td>
-    </ng-container> -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
