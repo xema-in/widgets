@@ -1,1 +1,5 @@
 name: ${{GITHUB_WORKFLOW}}
+
+on: 
+    workflow_dispatch:
+
