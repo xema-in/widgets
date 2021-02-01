@@ -12,14 +12,11 @@ import { CustomFormatter } from '../code/custom-formatter';
   declarations: [QueueMonitorPanelComponent],
   imports: [
     CommonModule,
-    TimeagoModule.forRoot({
-      formatter: { provide: TimeagoFormatter, useClass: CustomFormatter },
-      clock: { provide: TimeagoClock, useClass: CustomClock },
-    }),
+    TimeagoModule,
     MatCardModule,
     MatChipsModule,
     MatIconModule,
   ],
   exports: [QueueMonitorPanelComponent],
 })
-export class QueueMonitorPanelModule {}
+export class QueueMonitorPanelModule { }

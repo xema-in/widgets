@@ -21,10 +21,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   declarations: [TeamMonitorPanelComponent],
   imports: [
     CommonModule,
-    TimeagoModule.forRoot({
-      formatter: { provide: TimeagoFormatter, useClass: CustomFormatter },
-      clock: { provide: TimeagoClock, useClass: CustomClock },
-    }),
+    TimeagoModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -41,4 +38,4 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
   exports: [TeamMonitorPanelComponent],
 })
-export class TeamMonitorPanelModule {}
+export class TeamMonitorPanelModule { }
