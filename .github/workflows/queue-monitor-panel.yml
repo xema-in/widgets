@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
 
       - run: npm run build -- $GITHUB_WORKFLOW
-
+      - run: find .
       - run: npm publish --access public
         working-directory: ./dist/$GITHUB_WORKFLOW
         env:
