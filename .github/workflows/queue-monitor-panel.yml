@@ -5,7 +5,7 @@ on:
     workflow_dispatch:
 
 jobs:
-  build:
+  publish:
     env:
         OUTPUT_PATH: "./dist/$GITHUB_WORKFLOW"
     runs-on: ubuntu-latest
@@ -21,6 +21,7 @@ jobs:
       - run: npm run build -- $GITHUB_WORKFLOW
 
       - run: find ${{env.OUTPUT_PATH}}
-      - run: npm publish --access public --dry-run
-        working-directory: ${{env.OUTPUT_PATH}}
-    
+      - run: |
+            cd ${{env.OUTPUT_PATH}}
+            npm publish --access public --dry-run
+   
