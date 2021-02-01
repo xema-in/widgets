@@ -18,7 +18,7 @@ jobs:
           node-version: 12
       - run: npm ci
 
-      - run: npm run ng -- "build $GITHUB_WORKFLOW --prod"
+      - run: npm run prod $GITHUB_WORKFLOW
 
       - run: find ${{env.OUTPUT_PATH}}
       - run: |
