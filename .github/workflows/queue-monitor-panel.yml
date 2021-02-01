@@ -14,6 +14,10 @@ jobs:
           node-version: 12
       - run: npm ci
 
-      - run: npm run build -- $GITHUB_WORKFLOW
+      - run: npm run build -- $GITHUB_WORKFLOW --prod
 
-      - run: npm run build -- env.GITHUB_WORKFLOW
+      - run: npm publish --access public
+        working-directory: ./dist/$GITHUB_WORKFLOW
+        env:
+            NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
