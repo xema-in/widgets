@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TeamMonitorTablePanelComponent } from './team-monitor-table-panel.component';
 import { CommonModule } from '@angular/common';
-import { TimeagoModule, TimeagoFormatter, TimeagoClock } from 'ngx-timeago';
-import { CustomClock } from '../code/custom-clock';
-import { CustomFormatter } from '../code/custom-formatter';
+import { TimeagoModule } from 'ngx-timeago';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

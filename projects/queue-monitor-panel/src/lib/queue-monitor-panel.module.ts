@@ -4,9 +4,7 @@ import { QueueMonitorPanelComponent } from './queue-monitor-panel.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { TimeagoModule, TimeagoFormatter, TimeagoClock } from 'ngx-timeago';
-import { CustomClock } from '../code/custom-clock';
-import { CustomFormatter } from '../code/custom-formatter';
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
   declarations: [QueueMonitorPanelComponent],
