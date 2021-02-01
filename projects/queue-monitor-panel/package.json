@@ -3,8 +3,8 @@
   "version": "0.0.3",
   "description": "Xema Queue Monitor Panel",
   "author": {
-    "name": "Sreenivasa Reddy Inukollu",
-    "email": "vasu@xema.in"
+    "name": "Xema Dev Team",
+    "email": "dev@xema.in"
   },
   "peerDependencies": {
     "@angular/common": "^11.0.5",
