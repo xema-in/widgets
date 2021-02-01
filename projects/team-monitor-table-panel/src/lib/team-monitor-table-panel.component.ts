@@ -1,26 +1,26 @@
 import {
   Component,
-  Input,
   OnInit,
+  ViewEncapsulation,
   ViewChild,
   ElementRef,
-  ViewEncapsulation,
+  Input,
 } from '@angular/core';
-import { ServerConnection } from 'jema';
-import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ServerConnection } from 'jema';
+import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
 import { MatTableDataSource } from '@angular/material/table';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'xe-team-monitor-panel',
-  templateUrl: './team-monitor-panel.component.html',
-  styleUrls: ['./team-monitor-panel.component.scss'],
+  selector: 'xe-team-monitor-table-panel',
+  templateUrl: './team-monitor-table-panel.component.html',
+  styleUrls: ['./team-monitor-table-panel.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class TeamMonitorPanelComponent implements OnInit {
+export class TeamMonitorTablePanelComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild('TABLE') table: ElementRef;

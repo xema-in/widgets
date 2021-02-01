@@ -8,27 +8,36 @@
     "prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prod": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.5",
+    "@angular/cdk": "^11.1.1",
     "@angular/common": "~11.0.5",
     "@angular/compiler": "~11.0.5",
     "@angular/core": "~11.0.5",
     "@angular/forms": "~11.0.5",
+    "@angular/material": "^11.1.1",
     "@angular/platform-browser": "~11.0.5",
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
     "bootstrap": "^4.5.3",
+<<<<<<< HEAD
     "jema": "0.0.39",
+=======
+    "jema": "0.0.30",
+    "moment": "^2.29.1",
+>>>>>>> c7ba50345866731d3c8e7717ed46bb05e4658a3f
     "ngx-timeago": "^2.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "xlsx": "^0.16.9",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1100.5",
+    "@angular-devkit/build-angular": "^0.1100.7",
     "@angular/cli": "~11.0.5",
     "@angular/compiler-cli": "~11.0.5",
     "@types/jasmine": "~3.6.0",

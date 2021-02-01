@@ -1,12 +1,12 @@
+import { NgModule } from '@angular/core';
+import { TeamMonitorTablePanelComponent } from './team-monitor-table-panel.component';
+import { CommonModule } from '@angular/common';
+import { TimeagoModule, TimeagoFormatter, TimeagoClock } from 'ngx-timeago';
+import { CustomClock } from '../code/custom-clock';
+import { CustomFormatter } from '../code/custom-formatter';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { TimeagoClock, TimeagoFormatter, TimeagoModule } from 'ngx-timeago';
-import { CustomClock } from '../code/custom-clock';
-import { CustomFormatter } from '../code/custom-formatter';
-import { TeamMonitorPanelComponent } from './team-monitor-panel.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -18,7 +18,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
-  declarations: [TeamMonitorPanelComponent],
+  declarations: [TeamMonitorTablePanelComponent],
   imports: [
     CommonModule,
     TimeagoModule.forRoot({
@@ -39,6 +39,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatChipsModule,
     MatTooltipModule,
   ],
-  exports: [TeamMonitorPanelComponent],
+  exports: [TeamMonitorTablePanelComponent],
 })
-export class TeamMonitorPanelModule {}
+export class TeamMonitorTablePanelModule {}

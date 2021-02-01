@@ -1,80 +1,192 @@
-<table class="table">
-  <tbody>
-    <tr>
-      <td>
-        <h4>Total <span class="badge badge-secondary">{{total}}</span></h4>
-      </td>
-      <td>
-        <h4>In Break <span class="badge badge-secondary">{{break}}</span></h4>
-      </td>
-      <td>
-        <h4>In Call <span class="badge badge-danger">{{inCall}}</span></h4>
-      </td>
-      <td>
-        <h4>Wrap Up <span class="badge badge-warning">{{wrapUp}}</span></h4>
-      </td>
-      <td>
-        <h4>Idle <span class="badge badge-success">{{idle}}</span></h4>
-      </td>
-      <td>
-        <h4>Offline <span class="badge badge-secondary">{{offline}}</span></h4>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<br>
+<div class="row">
+  <div class="col-md-2">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-content>
+        <p class="h4">Total</p>
+      </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="badge badge-secondary">{{total}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="float-right">
+          <mat-card-subtitle>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 
-<table class="table table-striped table-hover">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">
-      </th>
-      <th scope="col">Name</th>
-      <th scope="col">Device</th>
-      <th scope="col">Caller</th>
-      <th>Status</th>
-      <th>Other</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let member of teamMemberStates">
-      <th scope="row">
-        <div mat-card-avatar class="agent-image"></div>
-      </th>
-      <td>
-        {{member.name}} <br />
-        {{member.agentId}} <span *ngIf="member.waitingForBreak" class="badge badge-warning">Need Break</span>
+  <div class="col-md-2">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-content>
+        <p class="h4">In Break</p>
+      </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="badge badge-secondary">{{break}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="float-right">
+          <mat-card-subtitle>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-md-2">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-content>
+        <p class="h4">In Call</p>
+      </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="badge badge-danger">{{inCall}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="float-right">
+          <mat-card-subtitle>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
+  <div class="col-md-2">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-content>
+        <p class="h4">Wrap Up</p>
+      </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="badge badge-warning">{{wrapUp}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="float-right">
+          <mat-card-subtitle>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-md-2">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-content>
+        <p class="h4">Idle</p>
+      </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="badge badge-success">{{idle}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="float-right">
+          <mat-card-subtitle>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-md-2">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-content>
+        <p class="h4">Offline</p>
+      </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="badge badge-secondary">{{offline}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="float-right">
+          <mat-card-subtitle>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<mat-toolbar>
+  <mat-toolbar-row class="toolbar-row">
+    <span></span>
+    <span class="spacer"></span>
+    <small>
+      <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput placeholder="Name, AgentId, Device etc." (keyup)="applyFilter($event.target.value)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </small>
+
+    <small class="ml-5"><a style="cursor: pointer;" matTooltipClass="example-tooltip-red" matTooltip="Export to Excel"
+        matTooltipPosition="left" (click)="ExportTOExcel()">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABmJLR0QA/wD/AP+gvaeTAAADHklEQVRYhe2WXUhUQRTH/zP37r2rlpIfKSlabFBmFFFBZkRkZCFF+RRGFEEfRA9RRmCB9qRkD4U+SD2EUQRREBVBSB+IFhFqRL4pVohYokh+5LreOT2sazt6N2e3e6kH/7AM5+7ZPb89858zC8xrXu6KqSZmNZzMNGDlquYvyEoXpqFzlVxBGGzdWtkWNVhOw4l8zuk1AEMVLCkzrVMzjOWq+QCqWrdUlIcCpV/EOe2IBipGFUs1VT7BAM0dFklSDSWwf6H/FkxXSaKRcY8lKOL7jDHA1ME9ehTnPAqwjOp9uyFELYGSQYTQa7S/Pw4CAiDQ1LPgilBMumaOeDOSh7WF8QIMIGAQwFdlEqL+iGAQViUBvt+Fp1YRDmOzCkJgciwpZzg9yeuNA9M4+noGAhNMZKtyMWAkPJY8RkBCLFDBWIBCsQOaYf7YoKafOSi5Y0KGiveYaDl9E02n6qFzDSDCsU370XXpEQqWrpWh3ASbNvMU4Kj/J+qa7yM3fRlK1xUh0UzA+e2H0NTZhuau9tlddFCS+QUJsBnbd6/tOQ5vKMa5bQexIi0bhqaj/Emd7dY6KbljNp4SQqDs8XVkJKbi+OYSVDXeQu/Qd3u/OagZA9be6IlmPBgASwhwsIiHoPttO7QEA0zj8GfG+cgTxcUySb7wcM6OmZqOq3vP4E33R9xoeYDyoqPIWZRhMy5cNf/sjl0oPAJfahYuP6vHlcYG+CcDqCk5OxvK1XFBMpwvJQul63fh4YcXeP+lA0NjP3Dt5R1szMnDzpX5MpTDYNKVm3Kx8BMR5dkOT9tpL+d4ewLhHkOUHvMPVb/yhkLJ/MGTFRsUSPxlj2TNvJJGY4Uiy81xQVQBoloQpUhQFsWREN7ZUAh2yiLowwKMM4AF3WF+G0c0qAzssxwraPGeNTUCKPtjEmfghgZu6NNwUYnQ0Xf33epQqPQPlpn6BJ+jFuMM4Dw2KBspgnkm2Vwb4xBQSEpgYMxZZytIcdCQ5S4GAAaphhIYERoB8rtDFBQDeyrHiko9ULBEM6xVziMBGthA7+237W5897zmFUm/AC6NgqcI/MAYAAAAAElFTkSuQmCC" />
+      </a></small>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="mat-elevation-z8" #TABLE>
+  <table mat-table #table matSort [dataSource]="dataSource">
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Device">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Device</th>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
+          {{row.device}}
+        </span></td>
+    </ng-container>
+
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
+          <span *ngIf="row.deviceStatus == 'In Call'" class="badge badge-danger">Talking</span>
+          <span *ngIf="row.deviceStatus == 'Idle' && row.agentStatus != 'In Break' && row.agentStatus != 'Disconnected'"
+            class="badge badge-success">Ready</span>
+          <span *ngIf="row.deviceStatus == 'Offline'" class="badge badge-secondary">Offline</span>
+          <span *ngIf="row.agentStatus == 'In Break' && row.deviceStatus == 'Idle'" class="badge badge-secondary">Not
+            Ready</span>
+        </span></td>
+    </ng-container>
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">
+        {{row.agentStatus}}
       </td>
-      <td>
-        <span *ngIf="member.device !== ''">
-          {{member.device}} <span class="badge badge-{{member.deviceStatusCss}}">{{member.deviceStatus}}</span><br />
-          <span *ngIf="member.deviceStatus === 'In Call'" class="badge badge-danger">{{member.currentCallTimestamp |
-            timeago:true}}</span>
+    </ng-container>
+    <ng-container matColumnDef="Duration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
+      <td mat-cell *matCellDef="let row"><span *ngIf="row.agentStatus === 'In Break'">
+          <span class="badge badge-secondary">{{row.breakTimestamp | timeago:true}}</span>
+        </span>
+        <span *ngIf="row.agentStatus === 'Busy' || row.agentStatus === 'Wrap Up'">
+          <span class="badge badge-secondary">{{row.queueCallTimestamp | timeago:true}}</span>
         </span>
       </td>
-      <td>
-        {{member.caller}}
-      </td>
-      <td>
-        {{member.agentStatus}} <br />
-        <span *ngIf="member.agentStatus === 'In Break'">
-          <span class="badge badge-warning">{{member.breakTimestamp | timeago:true}}</span>
-        </span>
-        <span *ngIf="member.agentStatus === 'Busy' || member.agentStatus === 'Wrap Up'">
-          <span class="badge badge-warning">Total: {{member.queueCallTimestamp | timeago:true}}</span>
-        </span>
-        <span *ngIf="member.agentStatus === 'Wrap Up'">
-          &nbsp;
-          <span class="badge badge-warning">Wrap: {{member.wrapUpTimestamp | timeago:true}}</span>
-        </span>
-      </td>
-      <td>
-        {{member.queueName}} <br />
-        {{member.callUniqueId}}
-      </td>
-      <td>
-        <!-- <button (click)="giveBreak()">Break</button> -->
-      </td>
-    </tr>
-  </tbody>
-</table>
+    </ng-container>
+
+    <ng-container matColumnDef="QueueName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Queue</th>
+      <td mat-cell *matCellDef="let row"> {{row.queueName}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>

@@ -24,6 +24,7 @@
               "projects/test/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/test/src/styles.css"
             ],
             "scripts": []
@@ -87,6 +88,7 @@
               "projects/test/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/test/src/styles.css"
             ],
             "scripts": []
@@ -191,6 +193,46 @@
             "tsConfig": [
               "projects/queue-monitor-panel/tsconfig.lib.json",
               "projects/queue-monitor-panel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "team-monitor-table-panel": {
+      "projectType": "library",
+      "root": "projects/team-monitor-table-panel",
+      "sourceRoot": "projects/team-monitor-table-panel/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/team-monitor-table-panel/tsconfig.lib.json",
+            "project": "projects/team-monitor-table-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/team-monitor-table-panel/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-monitor-table-panel/src/test.ts",
+            "tsConfig": "projects/team-monitor-table-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/team-monitor-table-panel/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/team-monitor-table-panel/tsconfig.lib.json",
+              "projects/team-monitor-table-panel/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

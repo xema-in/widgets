@@ -1,7 +1,7 @@
 {
-  "name": "@xema/queue-monitor-panel",
-  "version": "0.0.2",
-  "description": "Xema Queue Monitor Panel",
+  "name": "@xema/team-monitor-table-panel",
+  "version": "0.0.1",
+  "description": "Xema Team Monitor Table Panel",
   "author": {
     "name": "Sreenivasa Reddy Inukollu",
     "email": "vasu@xema.in"
@@ -10,14 +10,11 @@
     "@angular/common": "^11.0.5",
     "@angular/core": "^11.0.5",
     "bootstrap": "^4.5.3",
-<<<<<<< HEAD
-    "jema": "0.0.39"
-=======
+    "rxjs": "~6.6.0",
+    "ngx-timeago": "^2.0.0",
     "jema": "0.0.30"
->>>>>>> c7ba50345866731d3c8e7717ed46bb05e4658a3f
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  },
-  "license": "UNLICENSED"
+  }
 }
