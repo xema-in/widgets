@@ -1,31 +1,8 @@
-
 Develop
 ======
 ng build queue-monitor-panel --watch
 ng build team-monitor-panel --watch
 ng serve test
-======
-
-
-publish
-======
-cd projects/queue-monitor-panel
-npm version patch
-cd ../..
-ng build queue-monitor-panel --prod
-cd dist/queue-monitor-panel
-npm publish --access public
-cd ../..
-======
-cd projects/team-monitor-panel
-npm version patch
-cd ../..
-ng build team-monitor-panel --prod
-cd dist/team-monitor-panel
-npm publish --access public
-cd ../..
-======
-
 
 
 Merge
@@ -48,5 +25,13 @@ ng generate application test
 
 Library Project
 ---------------
-ng generate library queue-monitor-panel
-ng generate library team-monitor-panel
+ng generate library test-panel --prefix xe
+
+
+Dependencies in Library
+-----------------------
+
+cd projects/test-panel
+npm install jema -D
+
+Also, add the library in peer dependencies
