@@ -20,9 +20,6 @@ jobs:
 
       - run: npm run build -- $GITHUB_WORKFLOW
 
-      - run: echo ${{env.OUTPUT_PATH}}
-      - run: find ./dist
-
+      - run: cd ${{env.OUTPUT_PATH}}
       - run: npm publish --access public --dry-run
-        working-directory: ${{env.OUTPUT_PATH}}
     
