@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -15,12 +15,11 @@ jobs:
         with:
           node-version: 12
 
-      - run: npm ci
-
       - run: |
+          npm ci
+
           npm run prod queue-monitor-panel
           npm run prod team-monitor-panel
           npm run prod team-monitor-table-panel
-          
+
           npm run prod test
-          
