@@ -18,9 +18,7 @@ jobs:
 
       - run: npm run build -- $GITHUB_WORKFLOW
 
-      - run: find ./dist
-      - run: npm publish --access public --dry-run
-        working-directory: ./dist/queue-monitor-panel
+
 
   publish:
       runs-on: ubuntu-latest
@@ -29,4 +27,4 @@ jobs:
           COMPONENT_PATH: "./dist/$GITHUB_WORKFLOW"
       steps:
           - run: echo ${{env.COMPONENT_PATH}}
-            
+          - run: find ./dist
