@@ -1,18 +1,19 @@
 name: queue-monitor-panel
-on: 
-    push:
-        branches: main
-    workflow_dispatch:
+on:
+  push:
+    branches: main
+    paths:
+      - "./projects/$GITHUB_WORKFLOW/package.json"
 
 jobs:
   publish:
     env:
-        OUTPUT_PATH: "./dist/$GITHUB_WORKFLOW"
+      OUTPUT_PATH: "./dist/$GITHUB_WORKFLOW"
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-        
+
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -21,8 +22,9 @@ jobs:
       - run: npm run prod $GITHUB_WORKFLOW
 
       - run: find ${{env.OUTPUT_PATH}}
+
       - run: |
-            cd ${{env.OUTPUT_PATH}}
-            npm publish --access public --dry-run
+          cd ${{env.OUTPUT_PATH}}
+          npm publish --access public --dry-run
         env:
-            NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}   
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
