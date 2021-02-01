@@ -6,6 +6,8 @@ on:
 
 jobs:
   build:
+    env:
+        OUTPUT_PATH: "./dist/$GITHUB_WORKFLOW"
     runs-on: ubuntu-latest
 
     steps:
@@ -18,13 +20,9 @@ jobs:
 
       - run: npm run build -- $GITHUB_WORKFLOW
 
+      - run: echo ${{env.OUTPUT_PATH}}
+      - run: find ./dist
 
-
-  publish:
-      runs-on: ubuntu-latest
-      needs: build
-      env:
-          COMPONENT_PATH: "./dist/$GITHUB_WORKFLOW"
-      steps:
-          - run: echo ${{env.COMPONENT_PATH}}
-          - run: find ./dist
+      - run: npm publish --access public --dry-run
+        working-directory: ${{env.OUTPUT_PATH}}
+    
