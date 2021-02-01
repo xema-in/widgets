@@ -1,10 +1,10 @@
 {
   "name": "@xema/team-monitor-table-panel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Xema Team Monitor Table Panel",
   "author": {
-    "name": "Sreenivasa Reddy Inukollu",
-    "email": "vasu@xema.in"
+    "name": "Xema Dev Team",
+    "email": "dev@xema.in"
   },
   "peerDependencies": {
     "@angular/common": "^11.0.5",
@@ -16,5 +16,6 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "license": "UNLICENSED"
 }
