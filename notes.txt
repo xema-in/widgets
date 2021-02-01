@@ -1,7 +1,8 @@
 Develop
 ======
-ng build queue-monitor-panel --watch
-ng build team-monitor-panel --watch
+ng build queue-monitor-panel
+ng build team-monitor-panel
+ng build team-monitor-table-panel
 ng serve test
 
 

@@ -43,7 +43,7 @@ export class TeamMonitorPanelComponent implements OnInit {
   offline = 0;
   break = 0;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.serverConnection.teamMemberStates.subscribe((data) => {
