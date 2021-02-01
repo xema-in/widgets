@@ -12,11 +12,7 @@
     "bootstrap": "^4.5.3",
     "rxjs": "~6.6.0",
     "ngx-timeago": "^2.0.0",
-<<<<<<< HEAD
     "jema": "0.0.39"
-=======
-    "jema": "0.0.30"
->>>>>>> c7ba50345866731d3c8e7717ed46bb05e4658a3f
   },
   "dependencies": {
     "tslib": "^2.0.0"
