@@ -1,4 +1,4 @@
-name: queue-monitor-panel
+name: team-monitor-panel
 on:
   push:
     branches: main
