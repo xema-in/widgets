@@ -22,5 +22,5 @@ jobs:
 
       - run: find ${{env.OUTPUT_PATH}}
       - run: npm publish --access public --dry-run
-        working-directory: ./dist/queue-monitor-panel
+        working-directory: ${{env.OUTPUT_PATH}}
     
