@@ -14,7 +14,7 @@ jobs:
           node-version: 12
       - run: npm ci
 
-      - run: npm run build -- $GITHUB_WORKFLOW --prod
+      - run: npm run build -- $GITHUB_WORKFLOW
 
       - run: npm publish --access public
         working-directory: ./dist/$GITHUB_WORKFLOW
