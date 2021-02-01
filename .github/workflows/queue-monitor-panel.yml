@@ -18,4 +18,5 @@ jobs:
 
       - run: npm run build -- $GITHUB_WORKFLOW
 
+      - run: find ./dist
       - run: npm publish --access public --dry-run
