@@ -1,6 +1,6 @@
 {
   "name": "@xema/team-monitor-table-panel",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Xema Team Monitor Table Panel",
   "author": {
     "name": "Xema Dev Team",
@@ -19,4 +19,3 @@
   },
   "license": "UNLICENSED"
 }
-
