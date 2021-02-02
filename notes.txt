@@ -36,3 +36,13 @@ cd projects/test-panel
 npm install jema -D
 
 Also, add the library in peer dependencies
+
+
+Publish Library
+---------------
+Build with --prod
+ng build xxx-xxx-xxx --prod
+
+First time publishing may require --access public option.
+Also, publish from component dist folder. ./dist/xxx-xxx-xxx
+npm publish --access public
