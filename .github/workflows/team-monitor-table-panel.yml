@@ -1,7 +1,8 @@
 name: team-monitor-table-panel
 on:
   push:
-    branches: [xema-in/main]
+    branches:
+      - main
     paths:
       - "**/team-monitor-table-panel/package.json"
 

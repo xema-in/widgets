@@ -1,7 +1,8 @@
 name: queue-monitor-panel
 on:
   push:
-    branches: [xema-in/main]
+    branches:
+      - main
     paths:
       - "**/queue-monitor-panel/package.json"
 
