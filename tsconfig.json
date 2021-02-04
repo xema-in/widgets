@@ -27,6 +27,14 @@
       "team-monitor-table-panel": [
         "dist/team-monitor-table-panel/team-monitor-table-panel",
         "dist/team-monitor-table-panel"
+      ],
+      "queue-monitor-cards-panel": [
+        "dist/queue-monitor-cards-panel/queue-monitor-cards-panel",
+        "dist/queue-monitor-cards-panel"
+      ],
+      "queue-monitor-table-panel": [
+        "dist/queue-monitor-table-panel/queue-monitor-table-panel",
+        "dist/queue-monitor-table-panel"
       ]
     }
   }

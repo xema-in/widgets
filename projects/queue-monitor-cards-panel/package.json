@@ -1,7 +1,7 @@
 {
-  "name": "@xema/team-monitor-table-panel",
-  "version": "0.0.4",
-  "description": "Xema Team Monitor Table Panel",
+  "name": "@xema/queue-monitor-cards-panel",
+  "version": "0.0.1",
+  "description": "Xema Queue Monitor Cards Panel",
   "author": {
     "name": "Xema Dev Team",
     "email": "dev@xema.in"
@@ -10,12 +10,10 @@
     "@angular/common": "^11.0.5",
     "@angular/core": "^11.0.5",
     "bootstrap": "^4.5.3",
-    "rxjs": "~6.6.0",
-    "ngx-timeago": "^2.0.0",
-    "jema": "^0.0.41"
+    "jema": "^0.0.41",
+    "ngx-timeago": "^2.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  },
-  "license": "UNLICENSED"
+  }
 }

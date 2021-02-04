@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ServerConnection } from 'jema';
 import { QueueUpdate } from 'jema/lib/_interfaces/queue-update';
 
 @Component({
-  selector: 'xe-queue-monitor-panel',
-  templateUrl: './queue-monitor-panel.component.html',
-  styleUrls: ['./queue-monitor-panel.component.scss'],
+  selector: 'xe-queue-monitor-cards-panel',
+  templateUrl: './queue-monitor-cards-panel.component.html',
+  styleUrls: ['./queue-monitor-cards-panel.component.scss'],
 })
-export class QueueMonitorPanelComponent implements OnInit {
+export class QueueMonitorCardsPanelComponent implements OnInit {
   @Input() serverConnection: ServerConnection;
   queueUpdates: Array<QueueUpdate> = [];
 
