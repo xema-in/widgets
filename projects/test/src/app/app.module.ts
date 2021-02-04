@@ -11,8 +11,6 @@ import { CustomClock } from '../code/custom-clock';
 import { QueueMonitorPanelModule } from 'queue-monitor-panel';
 import { TeamMonitorPanelModule } from 'team-monitor-panel';
 import { TeamMonitorTablePanelModule } from 'team-monitor-table-panel';
-import { QueueMonitorCardsPanelModule } from 'queue-monitor-cards-panel';
-import { QueueMonitorTablePanelModule } from 'queue-monitor-table-panel';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,8 +24,6 @@ import { QueueMonitorTablePanelModule } from 'queue-monitor-table-panel';
     QueueMonitorPanelModule,
     TeamMonitorPanelModule,
     TeamMonitorTablePanelModule,
-    QueueMonitorCardsPanelModule,
-    QueueMonitorTablePanelModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
