@@ -10,10 +10,12 @@
     "@angular/common": "^11.0.5",
     "@angular/core": "^11.0.5",
     "bootstrap": "^4.5.3",
+    "rxjs": "~6.6.0",
     "jema": "^0.0.41",
     "ngx-timeago": "^2.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "license": "UNLICENSED"
 }
