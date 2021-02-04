@@ -4,26 +4,22 @@ import { Authenticator, ServerConnection } from 'jema';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-
   title = 'test';
   serverConnection: ServerConnection;
   connected = false;
 
-
   ngOnInit(): void {
-    const backend = 'http://192.168.29.60';
+    const backend = 'http://192.168.1.239';
     const auth = new Authenticator(backend);
-    auth.getAuthToken({ username: 'user', password: 'N0P@ssword' }).subscribe(
-      (data: any) => {
+    auth
+      .getAuthToken({ username: '79692', password: 'Karvy@123' })
+      .subscribe((data: any) => {
         this.connected = true;
         this.serverConnection = new ServerConnection(backend, data.auth_token);
         this.serverConnection.connect();
-      }
-    );
+      });
   }
-
-
 }
