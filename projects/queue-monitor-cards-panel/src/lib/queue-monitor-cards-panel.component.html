@@ -1,0 +1,65 @@
+<div class="row">
+    <ng-container *ngFor="let queueUpdate of queueUpdates">
+        <div class="col-sm-3 mt-2" *ngIf="queueUpdate.size > 0">
+            <mat-card class="mat-elevation-z8">
+                <mat-card-content>
+                    <p class="h6">{{queueUpdate.queue}}</p>
+                </mat-card-content>
+                <mat-card-header>
+                    <mat-card-title>
+                        <span>{{queueUpdate.size}}</span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-actions>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <span class="col-sm-8">Calls Offered</span>
+                                <span class="col-sm-1">:</span>
+                                <span
+                                    class="col-sm-2 badge badge-secondary">{{queueUpdate.callVolume.callsEntered}}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <span class="col-sm-8">Users Logged In</span>
+                                <span class="col-sm-1">:</span>
+                                <span
+                                    class="col-sm-2 badge badge-secondary custombadge">{{queueUpdate.agentCapacity.agentsConnected}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <div class="row">
+
+                                <span class="col-sm-8">Calls Answered</span>
+                                <span class="col-sm-1">:</span>
+                                <span
+                                    class="col-sm-2 badge badge-success">{{queueUpdate.callVolume.callsConnected}}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <span class="col-sm-8">Users Active</span>
+                                <span class="col-sm-1">:</span>
+                                <span
+                                    class="col-sm-2 badge badge-warning">{{queueUpdate.agentCapacity.agentsActive}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="float-right">
+                        <mat-card-subtitle *ngIf="queueUpdate.size > 0">
+                            <p class="h6 badge badge-danger">{{queueUpdate.maxWaitTimestamp  | timeago:true}}</p>
+                        </mat-card-subtitle>
+                    </div>
+                    <br>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </ng-container>
+</div>

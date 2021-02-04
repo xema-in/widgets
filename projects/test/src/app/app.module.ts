@@ -28,4 +28,4 @@ import { TeamMonitorTablePanelModule } from 'team-monitor-table-panel';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
