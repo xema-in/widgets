@@ -35,6 +35,8 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     'QueueName',
   ];
   @Input() serverConnection: ServerConnection;
+  @Input() teamLead: boolean;
+
   teamMemberStates: Array<TeamMemberState> = [];
   total = 0;
   inCall = 0;
@@ -88,5 +90,9 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     const now = moment().format('MMMM Do YYYY, h:mm:ss a');
     /* save to file */
     XLSX.writeFile(wb, 'AgentsStatus_' + now + '.xlsx');
+  }
+
+  barge(targetdeviceid) {
+    this.serverConnection.barge(targetdeviceid);
   }
 }
