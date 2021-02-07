@@ -11,7 +11,7 @@
     "@angular/core": "^11.0.5",
     "bootstrap": "^4.5.3",
     "rxjs": "~6.6.0",
-    "jema": "^0.0.41",
+    "jema": "^0.0.43",
     "ngx-timeago": "^2.0.0"
   },
   "dependencies": {

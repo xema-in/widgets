@@ -1,85 +1,13 @@
 <br>
-<div class="row">
-    <div class="col-md-3">
-        <mat-card class="mat-elevation-z8">
-            <mat-card-content>
-                <p class="h4">Total</p>
-            </mat-card-content>
-            <mat-card-header>
-                <mat-card-title>
-                    <span class="badge badge-secondary custombadge">{{total}}</span>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-actions>
-                <div class="float-right">
-                    <mat-card-subtitle>
-                    </mat-card-subtitle>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-    </div>
-
-    <div class="col-md-3">
-        <mat-card class="mat-elevation-z8">
-            <mat-card-content>
-                <p class="h4">Not Ready</p>
-            </mat-card-content>
-            <mat-card-header>
-                <mat-card-title>
-                    <span class="badge badge-secondary">{{break}}</span>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-actions>
-                <div class="float-right">
-                    <mat-card-subtitle>
-                    </mat-card-subtitle>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-    </div>
-
-    <div class="col-md-3">
-        <mat-card class="mat-elevation-z8">
-            <mat-card-content>
-                <p class="h4">Talking</p>
-            </mat-card-content>
-            <mat-card-header>
-                <mat-card-title>
-                    <span class="badge badge-danger">{{inCall}}</span>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-actions>
-                <div class="float-right">
-                    <mat-card-subtitle>
-                    </mat-card-subtitle>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-    </div>
-
-    <div class="col-md-3">
-        <mat-card class="mat-elevation-z8">
-            <mat-card-content>
-                <p class="h4">Ready</p>
-            </mat-card-content>
-            <mat-card-header>
-                <mat-card-title>
-                    <span class="badge badge-success">{{idle}}</span>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-actions>
-                <div class="float-right">
-                    <mat-card-subtitle>
-                    </mat-card-subtitle>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-    </div>
-
-</div>
 <mat-toolbar>
     <mat-toolbar-row class="toolbar-row">
-        <span></span>
+        <p class="h5">Total <span class="badge badge-secondary custombadge">{{total}}</span></p>
+        <span class="spacer"></span>
+        <p class="h5">Not Ready <span class="badge badge-secondary">{{break}}</span></p>
+        <span class="spacer"></span>
+        <p class="h5">Talking <span class="badge badge-danger">{{inCall}}</span></p>
+        <span class="spacer"></span>
+        <p class="h5">Ready <span class="badge badge-success">{{idle}}</span></p>
         <span class="spacer"></span>
         <small>
             <mat-form-field appearance="standard">
@@ -108,7 +36,10 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Device</th>
             <td mat-cell *matCellDef="let row"><span *ngIf="row.device !== ''">
                     {{row.device}}
-                </span></td>
+                </span>
+                <span class="ml-3" *ngIf="teamLead"><button *ngIf="row.device" mat-raised-button color="warn"
+                        (click)="barge(row.device)">Barge</button></span>
+            </td>
         </ng-container>
 
         <ng-container matColumnDef="State">

@@ -14,6 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [TeamMonitorTablePanelComponent],
@@ -33,7 +34,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     MatChipsModule,
     MatTooltipModule,
+    MatButtonModule,
   ],
   exports: [TeamMonitorTablePanelComponent],
 })
-export class TeamMonitorTablePanelModule { }
+export class TeamMonitorTablePanelModule {}
