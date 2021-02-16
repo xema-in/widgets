@@ -30,12 +30,12 @@ export class QueueMonitorTablePanelComponent implements OnInit {
 
   dataSource: any;
   displayedColumns = [
-    'Queue',
-    'Callswaiting',
-    'Usersloggedin',
-    'Oldestcallduration',
-    'callsoffered',
-    'callsanswered',
+    'queue',
+    'size',
+    'agentsConnected',
+    'maxWaitTimestamp',
+    'callsEntered',
+    'callsConnected',
   ];
 
   constructor() {}

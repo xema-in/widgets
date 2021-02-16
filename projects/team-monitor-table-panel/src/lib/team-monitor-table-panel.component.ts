@@ -27,12 +27,12 @@ export class TeamMonitorTablePanelComponent implements OnInit {
 
   dataSource: any;
   displayedColumns = [
-    'Name',
-    'Device',
-    'State',
-    'Status',
-    'Duration',
-    'QueueName',
+    'name',
+    'device',
+    'deviceStatus',
+    'agentStatus',
+    'breakTimestamp',
+    'queueName',
   ];
   @Input() serverConnection: ServerConnection;
   @Input() teamLead: boolean;
@@ -50,7 +50,9 @@ export class TeamMonitorTablePanelComponent implements OnInit {
   ngOnInit(): void {
     this.serverConnection.teamMemberStates.subscribe((data) => {
       this.teamMemberStates = data;
-      this.total = this.teamMemberStates.length;
+      this.total = this.teamMemberStates.filter(
+        (x) => x.agentStatus !== 'Disconnected'
+      ).length;
       this.inCall = this.teamMemberStates.filter(
         (x) => x.deviceStatus === 'In Call'
       ).length;
@@ -58,7 +60,7 @@ export class TeamMonitorTablePanelComponent implements OnInit {
         (x) => x.agentStatus === 'Wrap Up'
       ).length;
       this.idle = this.teamMemberStates.filter(
-        (x) => x.deviceStatus === 'Idle'
+        (x) => x.deviceStatus === 'Idle' && x.agentStatus !== 'Disconnected'
       ).length;
       this.offline = this.teamMemberStates.filter(
         (x) => x.deviceStatus === 'Offline'
@@ -66,6 +68,8 @@ export class TeamMonitorTablePanelComponent implements OnInit {
       this.break = this.teamMemberStates.filter(
         (x) => x.agentStatus === 'In Break'
       ).length;
+
+      data = data.filter((x) => x.agentStatus !== 'Disconnected');
 
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
