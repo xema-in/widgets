@@ -6,7 +6,6 @@ import {
   ElementRef,
   Input,
 } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ServerConnection } from 'jema';
 import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
@@ -21,7 +20,6 @@ import * as moment from 'moment';
   encapsulation: ViewEncapsulation.None,
 })
 export class TeamMonitorTablePanelComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild('TABLE') table: ElementRef;
 
@@ -31,6 +29,7 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     'device',
     'deviceStatus',
     'agentStatus',
+    'queueCallTimestamp',
     'breakTimestamp',
     'queueName',
   ];
@@ -72,17 +71,12 @@ export class TeamMonitorTablePanelComponent implements OnInit {
       data = data.filter((x) => x.agentStatus !== 'Disconnected');
 
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
   }
 
   ExportTOExcel() {
