@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { QueueUpdate } from 'jema/lib/_interfaces/queue-update';
 import { ServerConnection } from 'jema';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
@@ -24,8 +23,7 @@ export class QueueMonitorTablePanelComponent implements OnInit {
   @Input() serverConnection: ServerConnection;
   queueUpdates: Array<QueueUpdate> = [];
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild('TABLE') table: ElementRef;
 
   dataSource: any;
@@ -44,17 +42,12 @@ export class QueueMonitorTablePanelComponent implements OnInit {
     this.serverConnection.queueUpdates.subscribe((queueUpdates) => {
       this.queueUpdates = queueUpdates;
       this.dataSource = new MatTableDataSource(queueUpdates);
-      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
   }
 
   ExportTOExcel() {
