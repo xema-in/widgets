@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  ViewEncapsulation,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { QueueUpdate } from 'jema/lib/_interfaces/queue-update';
 import { ServerConnection } from 'jema';
 import { MatSort } from '@angular/material/sort';
@@ -36,7 +29,7 @@ export class QueueMonitorTablePanelComponent implements OnInit {
     'callsConnected',
   ];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.serverConnection.queueUpdates.subscribe((queueUpdates) => {

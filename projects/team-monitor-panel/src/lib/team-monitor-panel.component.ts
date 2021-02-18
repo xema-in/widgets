@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { ServerConnection } from 'jema';
 import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
 import { MatPaginator } from '@angular/material/paginator';
@@ -48,22 +41,13 @@ export class TeamMonitorPanelComponent implements OnInit {
   ngOnInit(): void {
     this.serverConnection.teamMemberStates.subscribe((data) => {
       this.teamMemberStates = data;
-      this.total = this.teamMemberStates.length;
-      this.inCall = this.teamMemberStates.filter(
-        (x) => x.deviceStatus === 'In Call'
-      ).length;
-      this.wrapUp = this.teamMemberStates.filter(
-        (x) => x.agentStatus === 'Wrap Up'
-      ).length;
-      this.idle = this.teamMemberStates.filter(
-        (x) => x.deviceStatus === 'Idle'
-      ).length;
-      this.offline = this.teamMemberStates.filter(
-        (x) => x.deviceStatus === 'Offline'
-      ).length;
-      this.break = this.teamMemberStates.filter(
-        (x) => x.agentStatus === 'In Break'
-      ).length;
+
+      this.total = this.teamMemberStates.filter((x) => x.connected === true).length;
+      this.inCall = this.teamMemberStates.filter((x) => x.agentSubStatus === 'In Call').length;
+      this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Wrap Up').length;
+      this.idle = this.teamMemberStates.filter((x) => x.agentStatus === 'Ready').length;
+      this.offline = this.teamMemberStates.filter((x) => x.agentStatus === 'Offline').length;
+      this.break = this.teamMemberStates.filter((x) => x.agentStatus === 'In Break').length;
 
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

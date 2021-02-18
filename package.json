@@ -24,7 +24,7 @@
     "@angular/router": "~11.0.5",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
-    "jema": "0.0.43",
+    "jema": "0.0.49",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "ngx-timeago": "^2.0.0",
