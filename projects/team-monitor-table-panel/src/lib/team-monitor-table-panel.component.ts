@@ -18,12 +18,14 @@ export class TeamMonitorTablePanelComponent implements OnInit {
 
   dataSource: any;
   displayedColumns = [
+    'agentId',
     'name',
     'phone',
     'agentStatus',
     'taskTimestamp',
-    'breakTimestamp',
     'queueName',
+    'breakTimestamp',
+    'breakReason',
   ];
   @Input() serverConnection: ServerConnection;
   @Input() teamLead: boolean;

@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
-import { QueueUpdate } from 'jema/lib/_interfaces/queue-update';
 import { ServerConnection } from 'jema';
 import { MatSort } from '@angular/material/sort';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
+import { QueueState } from 'jema/lib/_interfaces/queue-state';
 
 @Component({
   selector: 'xe-queue-monitor-table-panel',
@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class QueueMonitorTablePanelComponent implements OnInit {
   @Input() serverConnection: ServerConnection;
-  queueUpdates: Array<QueueUpdate> = [];
+  queueUpdates: Array<QueueState> = [];
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('TABLE') table: ElementRef;
@@ -32,7 +32,7 @@ export class QueueMonitorTablePanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.serverConnection.queueUpdates.subscribe((queueUpdates) => {
+    this.serverConnection.queueStates.subscribe((queueUpdates) => {
       this.queueUpdates = queueUpdates;
       this.dataSource = new MatTableDataSource(queueUpdates);
       this.dataSource.sort = this.sort;
