@@ -1,5 +1,9 @@
+Merge
+=====
+git pull https://github.com/xema-in/widgets.git main
+
 Develop
-======
+=======
 ng build queue-monitor-panel
 ng build queue-monitor-cards-panel
 ng build queue-monitor-table-panel
@@ -9,9 +13,14 @@ ng build team-monitor-table-panel
 ng serve test
 
 
-Merge
-=====
-git pull https://github.com/xema-in/widgets.git main
+NPM Release
+===========
+
+cd projects/queue-monitor-cards-panel && npm version patch && cd ../..
+cd projects/queue-monitor-panel && npm version patch && cd ../..
+cd projects/queue-monitor-table-panel && npm version patch && cd ../..
+cd projects/team-monitor-panel && npm version patch && cd ../..
+cd projects/team-monitor-table-panel && npm version patch && cd ../..
 
 
 Project Notes
