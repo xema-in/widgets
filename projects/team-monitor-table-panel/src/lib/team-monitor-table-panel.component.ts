@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
-  ViewChild,
-  ElementRef,
-  Input,
-} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef, Input } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { ServerConnection } from 'jema';
 import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
@@ -26,10 +19,9 @@ export class TeamMonitorTablePanelComponent implements OnInit {
   dataSource: any;
   displayedColumns = [
     'name',
-    'device',
-    'deviceStatus',
+    'phone',
     'agentStatus',
-    'queueCallTimestamp',
+    'taskTimestamp',
     'breakTimestamp',
     'queueName',
   ];
@@ -44,31 +36,20 @@ export class TeamMonitorTablePanelComponent implements OnInit {
   offline = 0;
   break = 0;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.serverConnection.teamMemberStates.subscribe((data) => {
       this.teamMemberStates = data;
-      this.total = this.teamMemberStates.filter(
-        (x) => x.agentStatus !== 'Disconnected'
-      ).length;
-      this.inCall = this.teamMemberStates.filter(
-        (x) => x.deviceStatus === 'In Call'
-      ).length;
-      this.wrapUp = this.teamMemberStates.filter(
-        (x) => x.agentStatus === 'Wrap Up'
-      ).length;
-      this.idle = this.teamMemberStates.filter(
-        (x) => x.deviceStatus === 'Idle' && x.agentStatus !== 'Disconnected'
-      ).length;
-      this.offline = this.teamMemberStates.filter(
-        (x) => x.deviceStatus === 'Offline'
-      ).length;
-      this.break = this.teamMemberStates.filter(
-        (x) => x.agentStatus === 'In Break'
-      ).length;
 
-      data = data.filter((x) => x.agentStatus !== 'Disconnected');
+      this.total = this.teamMemberStates.filter((x) => x.connected === true).length;
+      this.inCall = this.teamMemberStates.filter((x) => x.agentSubStatus === 'In Call').length;
+      this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Wrap Up').length;
+      this.idle = this.teamMemberStates.filter((x) => x.agentStatus === 'Ready').length;
+      this.offline = this.teamMemberStates.filter((x) => x.agentStatus === 'Offline').length;
+      this.break = this.teamMemberStates.filter((x) => x.agentStatus === 'In Break').length;
+
+      data = data.filter((x) => x.connected === true);
 
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
