@@ -1,4 +1,4 @@
-<mat-toolbar *ngIf="dataSource">
+<mat-toolbar>
     <mat-toolbar-row class="toolbar-row">
         <span></span>
         <span class="spacer"></span>
@@ -33,13 +33,13 @@
 
         <ng-container matColumnDef="agentsConnected">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Users Logged In</th>
-            <td mat-cell *matCellDef="let row">{{row.agentCapacity.agentsConnected}}</td>
+            <td mat-cell *matCellDef="let row">{{row.agentsConnected}}</td>
         </ng-container>
 
         <ng-container matColumnDef="maxWaitTimestamp">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Oldest Call Duration</th>
             <td mat-cell *matCellDef="let row"><span *ngIf="row.size > 0" class="badge badge-danger">
-                    {{row.maxWaitTimestamp  | timeago:true}}
+                    {{row.maxWaitTimestamp | timeago:true}}
                 </span>
             </td>
         </ng-container>
@@ -47,13 +47,13 @@
 
         <ng-container matColumnDef="callsEntered">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Calls Offered</th>
-            <td mat-cell *matCellDef="let row">{{row.callVolume.callsEntered}}</td>
+            <td mat-cell *matCellDef="let row">{{row.callsEntered}}</td>
         </ng-container>
 
 
         <ng-container matColumnDef="callsConnected">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Calls Answered</th>
-            <td mat-cell *matCellDef="let row">{{row.callVolume.callsConnected}}</td>
+            <td mat-cell *matCellDef="let row">{{row.callsConnected}}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
