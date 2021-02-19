@@ -76,4 +76,37 @@ export class TeamMonitorTablePanelComponent implements OnInit {
   barge(targetdeviceid) {
     this.serverConnection.barge(targetdeviceid);
   }
+
+  getAht(hms, aht) {
+    let seconds = this.ConvertToSeconds(hms);
+    if (aht != null && seconds >= aht) {
+      return 'danger';
+    }
+    else {
+      return 'secondary';
+    }
+  }
+
+  ConvertToSeconds(hms) {
+    let a = hms.trim();
+    let tt = a.split(' ');
+    let seconds = 0;
+    tt.forEach(t => {
+      switch (t.slice(-1)) {
+        case 's':
+          seconds += +t.substring(0, t.length - 1);
+          break;
+        case 'm':
+          seconds += (+t.substring(0, t.length - 1)) * 60;
+          break;
+        case 'h':
+          seconds += (+t.substring(0, t.length - 1)) * 60 * 60;
+          break;
+        default:
+          break;
+      }
+    });
+    return seconds;
+  }
+
 }

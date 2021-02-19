@@ -63,7 +63,8 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Call Duration</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.hasTask">
-          <span class="badge badge-secondary">{{row.taskTimestamp | timeago:true}}</span>
+          <span class="badge badge-{{getAht(row.taskTimestamp | timeago:true, row.ahtTarget)}}">{{row.taskTimestamp |
+            timeago:true}}</span>
         </span>
       </td>
     </ng-container>
