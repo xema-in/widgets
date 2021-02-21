@@ -16,8 +16,7 @@
                             <div class="row">
                                 <span class="col-sm-8">Calls Offered</span>
                                 <span class="col-sm-1">:</span>
-                                <span
-                                    class="col-sm-2 badge badge-secondary">{{queueUpdate.callVolume.callsEntered}}</span>
+                                <span class="col-sm-2 badge badge-secondary">{{queueUpdate.callsEntered}}</span>
                             </div>
                         </div>
                         <div class="col-sm-1"></div>
@@ -26,7 +25,7 @@
                                 <span class="col-sm-8">Users Logged In</span>
                                 <span class="col-sm-1">:</span>
                                 <span
-                                    class="col-sm-2 badge badge-secondary custombadge">{{queueUpdate.agentCapacity.agentsConnected}}</span>
+                                    class="col-sm-2 badge badge-secondary custombadge">{{queueUpdate.agentsConnected}}</span>
                             </div>
                         </div>
                     </div>
@@ -37,8 +36,7 @@
 
                                 <span class="col-sm-8">Calls Answered</span>
                                 <span class="col-sm-1">:</span>
-                                <span
-                                    class="col-sm-2 badge badge-success">{{queueUpdate.callVolume.callsConnected}}</span>
+                                <span class="col-sm-2 badge badge-success">{{queueUpdate.callsConnected}}</span>
                             </div>
                         </div>
                         <div class="col-sm-1"></div>
@@ -46,15 +44,14 @@
                             <div class="row">
                                 <span class="col-sm-8">Users Active</span>
                                 <span class="col-sm-1">:</span>
-                                <span
-                                    class="col-sm-2 badge badge-warning">{{queueUpdate.agentCapacity.agentsActive}}</span>
+                                <span class="col-sm-2 badge badge-warning">{{queueUpdate.agentsActive}}</span>
                             </div>
                         </div>
                     </div>
                     <br>
                     <div class="float-right">
                         <mat-card-subtitle *ngIf="queueUpdate.size > 0">
-                            <p class="h6 badge badge-danger">{{queueUpdate.maxWaitTimestamp  | timeago:true}}</p>
+                            <p class="h6 badge badge-danger">{{queueUpdate.maxWaitTimestamp | timeago:true}}</p>
                         </mat-card-subtitle>
                     </div>
                     <br>
