@@ -2,3 +2,39 @@
     display: flex;
     align-items: center;
 }
+
+.green-icon {
+    color: green;
+}
+
+.orange-icon {
+    color: orange;
+}
+
+.red-icon {
+  color: red;
+}
+
+.blue-icon {
+    color: blue;
+}
+
+.clip-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right-align-text {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.background-color {
+  background-color:red;
+  color: white;
+  border-radius: 4px;
+}
+
+.gutter {
+  margin: 8px;
+}

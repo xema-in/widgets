@@ -1,29 +1,31 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch">
-  <div fxFlex="250px" *ngFor="let queueUpdate of queueUpdates">
-    <mat-card>
-      <!-- *ngIf="queueUpdate.size > 0"  -->
+  <div *ngFor="let queueUpdate of queueUpdates">
+    <mat-card fxFlex="330px" class="gutter" *ngIf="queueUpdate.size > 0">
       <mat-card-title fxLayout="row">
-        <span fxFlex="70">{{queueUpdate.queue}}</span>
-        <span fxFlex="30">{{queueUpdate.size}}</span>
+        <span fxFlex="90" class="clip-text">{{queueUpdate.queue}}</span>
+        <span fxFlex="10" class="right-align-text">{{queueUpdate.size}}</span>
       </mat-card-title>
       <mat-card-subtitle fxLayout="row">
-        <span fxFlex="70">Active Queue</span>
-        <span fxFlex="30" *ngIf="queueUpdate.maxWaitTimestamp != null">
-          {{queueUpdate.maxWaitTimestamp | timeago:true}}
+        <span fxFlex="60">Active Queue</span>
+        <span fxFlex="40" class="right-align-text" *ngIf="queueUpdate.maxWaitTimestamp != null">
+          <span class="background-color">&nbsp;{{queueUpdate.maxWaitTimestamp | timeago:true}}&nbsp;</span>
         </span>
       </mat-card-subtitle>
       <mat-divider></mat-divider>
-      <mat-card-actions fxLayout="row" fxLayoutAlign="space-evenly stretch">
-        <span fxFlex></span>
-        <div fxFlex class="with-icon">
-          <mat-icon>call_received</mat-icon><span>{{queueUpdate.callsEntered}}</span>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="space-around stretch">
+        <div fxFlex="29" class="with-icon">
+          <mat-icon>phone_callback</mat-icon><span>{{queueUpdate.callsEntered}}</span>
         </div>
-        <span fxFlex>{{queueUpdate.callsConnected}}</span>
-        <span fxFlex>{{queueUpdate.agentsConnected}}</span>
-        <span fxFlex>{{queueUpdate.agentsActive}}</span>
-        <span fxFlex></span>
+        <div fxFlex="29" class="with-icon">
+          <mat-icon class="green-icon">phone_in_talk</mat-icon><span>{{queueUpdate.callsConnected}}</span>
+        </div>
+        <div fxFlex="21" class="with-icon">
+          <mat-icon class="blue-icon">support_agent</mat-icon><span>{{queueUpdate.agentsConnected}}</span>
+        </div>
+        <div fxFlex="21" class="with-icon">
+          <mat-icon class="green-icon">support_agent</mat-icon><span>{{queueUpdate.agentsActive}}</span>
+        </div>
       </mat-card-actions>
     </mat-card>
-
   </div>
 </div>
