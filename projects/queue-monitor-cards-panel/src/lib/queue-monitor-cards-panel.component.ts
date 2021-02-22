@@ -15,6 +15,7 @@ export class QueueMonitorCardsPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.serverConnection.queueStates.subscribe((queueUpdates) => {
+      console.log(queueUpdates);
       this.queueUpdates = queueUpdates;
     });
   }

@@ -11,6 +11,7 @@ import { CustomClock } from '../code/custom-clock';
 import { QueueMonitorPanelModule } from 'queue-monitor-panel';
 import { TeamMonitorPanelModule } from 'team-monitor-panel';
 import { TeamMonitorTablePanelModule } from 'team-monitor-table-panel';
+import { QueueMonitorCardsPanelModule } from 'projects/queue-monitor-cards-panel/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { TeamMonitorTablePanelModule } from 'team-monitor-table-panel';
       formatter: { provide: TimeagoFormatter, useClass: CustomFormatter },
       clock: { provide: TimeagoClock, useClass: CustomClock },
     }),
+    QueueMonitorCardsPanelModule,
     QueueMonitorPanelModule,
     TeamMonitorPanelModule,
     TeamMonitorTablePanelModule,
@@ -28,4 +30,4 @@ import { TeamMonitorTablePanelModule } from 'team-monitor-table-panel';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
