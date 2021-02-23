@@ -14,26 +14,20 @@ import * as moment from 'moment';
   encapsulation: ViewEncapsulation.None,
 })
 export class TeamMonitorPanelComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild('TABLE') table: ElementRef;
 
-  dataSource: any;
-  displayedColumns = [
-    'Name',
-    'Device',
-    'State',
-    'Status',
-    'Duration',
-    'QueueName',
-  ];
   @Input() serverConnection: ServerConnection;
+
+  dataSource: any;
+  displayedColumns = ['Name', 'Phone', 'Status', 'Duration', 'QueueName', 'UniqueId'];
+
   teamMemberStates: Array<TeamMemberState> = [];
   total = 0;
+  online = 0;
   inCall = 0;
   wrapUp = 0;
   idle = 0;
-  offline = 0;
   break = 0;
 
   constructor() { }
@@ -42,15 +36,16 @@ export class TeamMonitorPanelComponent implements OnInit {
     this.serverConnection.teamMemberStates.subscribe((data) => {
       this.teamMemberStates = data;
 
-      this.total = this.teamMemberStates.filter((x) => x.connected === true).length;
+      console.log(data);
+
+      this.total = this.teamMemberStates.length;
       this.inCall = this.teamMemberStates.filter((x) => x.agentSubStatus === 'In Call').length;
       this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Wrap Up').length;
       this.idle = this.teamMemberStates.filter((x) => x.agentStatus === 'Ready').length;
-      this.offline = this.teamMemberStates.filter((x) => x.agentStatus === 'Offline').length;
+      this.online = this.teamMemberStates.filter((x) => x.connected === true).length;
       this.break = this.teamMemberStates.filter((x) => x.agentStatus === 'In Break').length;
 
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
