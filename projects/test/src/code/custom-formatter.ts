@@ -6,7 +6,7 @@ export class CustomFormatter implements TimeagoFormatter {
     const now = Date.now();
 
     let totalUnits = Math.round(Math.abs(now - then) / 1000); // units in seconds
-    totalUnits = 50;
+    // totalUnits = 50;
 
     const seconds = totalUnits % 60;
     totalUnits -= seconds;
