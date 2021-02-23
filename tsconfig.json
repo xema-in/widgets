@@ -37,5 +37,8 @@
         "dist/queue-monitor-table-panel"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true
   }
 }
