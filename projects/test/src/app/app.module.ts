@@ -8,10 +8,10 @@ import { TimeagoClock, TimeagoFormatter, TimeagoModule } from 'ngx-timeago';
 import { CustomFormatter } from '../code/custom-formatter';
 import { CustomClock } from '../code/custom-clock';
 
-import { QueueMonitorPanelModule } from 'queue-monitor-panel';
 import { TeamMonitorPanelModule } from 'team-monitor-panel';
 import { TeamMonitorTablePanelModule } from 'team-monitor-table-panel';
 import { QueueMonitorCardsPanelModule } from 'projects/queue-monitor-cards-panel/src/public-api';
+import { QueueMonitorPanelModule } from 'projects/queue-monitor-panel/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],

@@ -1,24 +1,19 @@
-<div class="row">
-  <ng-container *ngFor="let queueUpdate of queueUpdates">
-    <div class="col-sm-3 mt-2" *ngIf="queueUpdate.size > 0">
-      <mat-card class="mat-elevation-z8">
-        <mat-card-content>
-          <p class="h6">{{queueUpdate.queue}}</p>
-        </mat-card-content>
-        <mat-card-header>
-          <mat-card-title>
-            <span>{{queueUpdate.size}}</span>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-          <div class="float-right">
-            <mat-card-subtitle *ngIf="queueUpdate.size > 0">
-              <p class="h6">{{queueUpdate.maxWaitTimestamp  | timeago:true}}</p>
-            </mat-card-subtitle>
-          </div>
-          <br>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </ng-container>
+<div fxLayout="row wrap" fxLayoutAlign="start stretch">
+  <div *ngFor="let queueUpdate of queueUpdates">
+    <mat-card fxFlex="330px" class="gutter" *ngIf="queueUpdate.size > 0">
+      <div fxLayout="column">
+        <div fxLayout="row">
+          <span fxFlex="67" class="clip-text">{{queueUpdate.queue}}</span>
+          <span fxFlex="23" class="right-align-text" *ngIf="queueUpdate.maxWaitTimestamp != null">
+            <span class="white-text-on-red-background">
+              &nbsp;{{queueUpdate.maxWaitTimestamp | timeago:true}}&nbsp;
+            </span>
+          </span>
+          <span fxFlex="10" class="right-align-text">23{{queueUpdate.size}}</span>
+        </div>
+        <div fxLayout="row">
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </div>
