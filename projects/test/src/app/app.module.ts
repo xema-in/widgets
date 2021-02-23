@@ -12,6 +12,7 @@ import { QueueMonitorCardsPanelModule } from 'projects/queue-monitor-cards-panel
 import { QueueMonitorPanelModule } from 'projects/queue-monitor-panel/src/public-api';
 import { QueueMonitorTablePanelModule } from 'projects/queue-monitor-table-panel/src/public-api';
 import { TeamMonitorTablePanelModule } from 'projects/team-monitor-table-panel/src/public-api';
+import { TeamMonitorPanelModule } from 'projects/team-monitor-panel/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,8 @@ import { TeamMonitorTablePanelModule } from 'projects/team-monitor-table-panel/s
     QueueMonitorCardsPanelModule,
     QueueMonitorPanelModule,
     QueueMonitorTablePanelModule,
-    TeamMonitorTablePanelModule
+    TeamMonitorTablePanelModule,
+    TeamMonitorPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent],

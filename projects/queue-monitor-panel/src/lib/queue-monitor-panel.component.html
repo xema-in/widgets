@@ -4,8 +4,8 @@
       <div fxLayout="column">
         <div fxLayout="row">
           <span fxFlex="67" class="clip-text">{{queueUpdate.queue}}</span>
-          <span fxFlex="23" class="right-align-text" *ngIf="queueUpdate.maxWaitTimestamp != null">
-            <span class="white-text-on-red-background">
+          <span fxFlex="23" class="right-align-text">
+            <span class="white-text-on-red-background" *ngIf="queueUpdate.maxWaitTimestamp != null">
               &nbsp;{{queueUpdate.maxWaitTimestamp | timeago:true}}&nbsp;
             </span>
           </span>
