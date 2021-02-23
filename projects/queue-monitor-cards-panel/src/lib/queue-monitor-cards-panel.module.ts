@@ -3,7 +3,6 @@ import { QueueMonitorCardsPanelComponent } from './queue-monitor-cards-panel.com
 import { CommonModule } from '@angular/common';
 import { TimeagoModule } from 'ngx-timeago';
 import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -16,7 +15,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDividerModule,
     TimeagoModule,
     MatCardModule,
-    MatChipsModule,
     MatIconModule,
   ],
   exports: [QueueMonitorCardsPanelComponent],
