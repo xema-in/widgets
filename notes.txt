@@ -4,12 +4,6 @@ git pull https://github.com/xema-in/widgets.git main
 
 Develop
 =======
-ng build queue-monitor-panel
-ng build queue-monitor-cards-panel
-ng build queue-monitor-table-panel
-ng build team-monitor-panel
-ng build team-monitor-table-panel
-
 ng serve test
 
 

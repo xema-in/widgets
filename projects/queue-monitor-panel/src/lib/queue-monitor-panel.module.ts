@@ -2,9 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { QueueMonitorPanelComponent } from './queue-monitor-panel.component';
 import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
 import { TimeagoModule } from 'ngx-timeago';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [QueueMonitorPanelComponent],
@@ -12,8 +11,7 @@ import { TimeagoModule } from 'ngx-timeago';
     CommonModule,
     TimeagoModule,
     MatCardModule,
-    MatChipsModule,
-    MatIconModule,
+    FlexLayoutModule,
   ],
   exports: [QueueMonitorPanelComponent],
 })

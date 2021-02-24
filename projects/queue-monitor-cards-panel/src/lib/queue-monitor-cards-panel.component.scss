@@ -1,10 +1,40 @@
-
-mat-card-title {
-  font-size: 34px !important;
-  color: #103f8e;
+.with-icon {
+    display: flex;
+    align-items: center;
 }
 
-.custombadge {
-  background-color: #3f51b5 !important ;
-  color: #fff !important;
+.green-icon {
+    color: green;
+}
+
+.orange-icon {
+    color: orange;
+}
+
+.red-icon {
+  color: red;
+}
+
+.blue-icon {
+    color: blue;
+}
+
+.clip-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right-align-text {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.background-color {
+  background-color:red;
+  color: white;
+  border-radius: 4px;
+}
+
+.gutter {
+  margin: 8px;
 }
