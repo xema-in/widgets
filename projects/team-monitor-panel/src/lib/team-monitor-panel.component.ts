@@ -20,7 +20,7 @@ export class TeamMonitorPanelComponent implements OnInit {
   @Input() serverConnection: ServerConnection;
 
   dataSource: any;
-  displayedColumns = ['Name', 'Phone', 'Status', 'Duration', 'QueueName', 'UniqueId'];
+  displayedColumns = ['name', 'phoneId', 'agentStatus', 'breakTimestamp', 'taskTimestamp', 'wrapUpTimestamp', 'queueName', 'callUniqueId'];
 
   teamMemberStates: Array<TeamMemberState> = [];
   total = 0;
