@@ -38,7 +38,7 @@
 <div class="mat-elevation-z8" #TABLE>
   <table mat-table #table matSort [dataSource]="dataSource">
 
-    <ng-container matColumnDef="Name">
+    <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Name</th>
       <td mat-cell *matCellDef="let row">
         {{row.name}} &nbsp;
@@ -47,7 +47,7 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="Phone">
+    <ng-container matColumnDef="phoneId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.hasPhone">
@@ -64,7 +64,7 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="Status">
+    <ng-container matColumnDef="agentStatus">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Status</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.connected == false" class="badge badge-secondary">Offline</span>
@@ -75,27 +75,39 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="Duration">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
+    <ng-container matColumnDef="breakTimestamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Break Duration</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.agentStatus === 'In Break'">
           <span class="badge badge-secondary">{{row.breakTimestamp | timeago:true}}</span>
         </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="taskTimestamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Call Duration</th>
+      <td mat-cell *matCellDef="let row">
         <span *ngIf="row.agentStatus === 'Busy'">
           <span class="badge badge-secondary">{{row.taskTimestamp | timeago:true}}</span>
         </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="wrapUpTimestamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>WrapUp Duration</th>
+      <td mat-cell *matCellDef="let row">
         <span *ngIf="row.agentSubStatus === 'Wrap Up'">
           <span class="badge badge-secondary">{{row.wrapUpTimestamp | timeago:true}}</span>
         </span>
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="QueueName">
+    <ng-container matColumnDef="queueName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Queue Name</th>
       <td mat-cell *matCellDef="let row">{{row.queueName}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="UniqueId">
+    <ng-container matColumnDef="callUniqueId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Unique Id</th>
       <td mat-cell *matCellDef="let row">{{row.callUniqueId}}</td>
     </ng-container>
