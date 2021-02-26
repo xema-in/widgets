@@ -37,11 +37,7 @@ ng generate library test-panel --prefix xe
 
 Dependencies in Library
 -----------------------
-
-cd projects/test-panel
-npm install jema -D
-
-Also, add the library in peer dependencies
+Add the library in peer dependencies
 
 
 Publish Library
