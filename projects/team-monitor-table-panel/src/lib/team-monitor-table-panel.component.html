@@ -60,12 +60,17 @@
     <ng-container matColumnDef="agentStatus">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Status</th>
       <td mat-cell *matCellDef="let row">
-        <!-- <span *ngIf="!row.hasPhone">{{row.agentStatus}}</span> -->
-        <span *ngIf="row.connected == false" class="badge badge-secondary">Offline</span>
-        <span *ngIf="row.agentStatus == 'In Break'" class="badge badge-secondary">Not Ready</span>
-        <span *ngIf="row.agentStatus == 'Ready'" class="badge badge-success">Ready</span>
-        <span *ngIf="row.agentSubStatus == 'In Call'" class="badge badge-danger">{{row.agentStatus}} - Talking</span>
-        <span *ngIf="row.agentSubStatus == 'Wrap Up'" class="badge badge-secondary">{{row.agentStatus}} - Wrap Up</span>
+        <span *ngIf="row.connected !== true" class="white-text-on-gray-background">Offline</span>
+        <span *ngIf="row.connected === true">
+          <span *ngIf="row.agentStatus == 'In Break'" class="white-text-on-gray-background">Not Ready</span>
+          <span *ngIf="row.agentStatus == 'Ready'" class="white-text-on-green-background">Ready</span>
+          <span *ngIf="row.agentSubStatus == 'In Call'" class="white-text-on-red-background">
+            {{row.agentStatus}} - Talking</span>
+          <span *ngIf="row.agentSubStatus == 'Wrap Up'" class="white-text-on-gray-background">
+            {{row.agentStatus}} - Wrap Up</span>
+          <span *ngIf="row.agentStatus !== 'In Break' && row.agentStatus !== 'Ready' && row.agentStatus !== 'Busy'">
+            {{row.agentStatus}}</span>
+        </span>
       </td>
     </ng-container>
 
@@ -96,7 +101,9 @@
 
     <ng-container matColumnDef="breakReason">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Break Reason</th>
-      <td mat-cell *matCellDef="let row">{{row.breakReason}}</td>
+      <td mat-cell *matCellDef="let row">
+        <span *ngIf="row.inBreak">{{row.breakReason}}</span>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
