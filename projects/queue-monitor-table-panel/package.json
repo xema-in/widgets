@@ -1,6 +1,6 @@
 {
   "name": "@xema/queue-monitor-table-panel",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Xema Queue Monitor Table Panel",
   "author": {
     "name": "Xema Dev Team",
@@ -12,7 +12,7 @@
     "@angular/material": "~11.2.1",
     "@angular/flex-layout": "^11.0.0-beta.33",
     "rxjs": "~6.6.0",
-    "jema": "^0.0.55",
+    "jema": "^0.0.56",
     "ngx-timeago": "^2.0.0"
   },
   "dependencies": {
