@@ -31,10 +31,10 @@ export class TeamMonitorTablePanelComponent implements OnInit {
   @Input() teamLead: boolean;
 
   teamMemberStates: Array<TeamMemberState> = [];
-  total = 0;
-  inCall = 0;
+  login = 0;
+  talking = 0;
   wrapUp = 0;
-  idle = 0;
+  ready = 0;
   offline = 0;
   break = 0;
 
@@ -44,13 +44,13 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     this.serverConnection.teamMemberStates.subscribe((data) => {
       this.teamMemberStates = data;
 
-      this.total = this.teamMemberStates.filter((x) => x.connected === true).length;
-      this.inCall = this.teamMemberStates.filter((x) => x.agentSubStatus === 'In Call').length;
-      this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Wrap Up').length;
-      this.idle = this.teamMemberStates.filter((x) => x.agentStatus === 'Idle').length;
-      this.offline = this.teamMemberStates.filter((x) => x.agentStatus === 'Offline').length;
+      this.login = this.teamMemberStates.filter((x) => x.connected === true).length;
       this.break = this.teamMemberStates.filter(
         (x) => x.agentStatus === 'NoPhone' || x.agentStatus === 'NotReady' || x.agentStatus === 'InBreak').length;
+      this.ready = this.teamMemberStates.filter((x) => x.agentStatus === 'Idle').length;
+      this.talking = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Working').length;
+      this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Closing').length;
+      this.offline = this.teamMemberStates.filter((x) => x.agentStatus === 'Offline').length;
 
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;

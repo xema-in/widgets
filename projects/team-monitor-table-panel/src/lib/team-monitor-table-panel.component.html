@@ -3,7 +3,7 @@
     <span fxFlex="50">Team Monitor</span>
     <span fxFlex="550px" fxLayout="row" fxLayoutAlign="space-around stretch">
       <span fxFlex="20">
-        <span class="white-text-on-blue-background">&nbsp;Login - {{total}}&nbsp;</span>
+        <span class="white-text-on-blue-background">&nbsp;Login - {{login}}&nbsp;</span>
       </span>
       <span fxFlex="10px"></span>
       <span fxFlex="30">
@@ -11,11 +11,11 @@
       </span>
       <span fxFlex="10px"></span>
       <span fxFlex="20">
-        <span class="white-text-on-green-background">&nbsp;Ready - {{idle}}&nbsp;</span>
+        <span class="white-text-on-green-background">&nbsp;Ready - {{ready}}&nbsp;</span>
       </span>
       <span fxFlex="10px"></span>
       <span fxFlex="20">
-        <span class="white-text-on-red-background">&nbsp;Talking - {{inCall}}&nbsp;</span>
+        <span class="white-text-on-red-background">&nbsp;Talking - {{talking}}&nbsp;</span>
       </span>
     </span>
 
@@ -62,13 +62,13 @@
         <span *ngIf="row.connected !== true">Offline</span>
         <span *ngIf="row.connected === true">
           <span *ngIf="row.agentStatus === 'NoPhone' || row.agentStatus === 'NotReady'">Not Ready</span>
-          <span *ngIf="row.agentStatus === 'InBreak'" class="white-text-on-gray-background">Not Ready</span>
-          <span *ngIf="row.agentStatus === 'Idle'" class="white-text-on-green-background">Ready</span>
+          <span *ngIf="row.agentStatus === 'InBreak'" class="white-text-on-gray-background">&nbsp;Not Ready&nbsp;</span>
+          <span *ngIf="row.agentStatus === 'Idle'" class="white-text-on-green-background">&nbsp;Ready&nbsp;</span>
           <span *ngIf="row.agentStatus === 'Busy'" class="white-text-on-red-background">
-            {{row.agentStatus}}
+            &nbsp;{{row.agentStatus}}
             <span *ngIf="row.agentSubStatus === 'Preparing'">&nbsp;- Preparing</span>
             <span *ngIf="row.agentSubStatus === 'Working'">&nbsp;- Talking</span>
-            <span *ngIf="row.agentSubStatus === 'Closing'">&nbsp;- Wrap Up</span>
+            <span *ngIf="row.agentSubStatus === 'Closing'">&nbsp;- Wrap Up</span>&nbsp;
           </span>
           <span *ngIf="row.agentStatus == ''">Login</span>
         </span>
