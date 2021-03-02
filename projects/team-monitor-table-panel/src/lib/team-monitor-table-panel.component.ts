@@ -44,8 +44,6 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     this.serverConnection.teamMemberStates.subscribe((data) => {
       this.teamMemberStates = data;
 
-      console.log(data);
-
       this.total = this.teamMemberStates.filter((x) => x.connected === true).length;
       this.inCall = this.teamMemberStates.filter((x) => x.agentSubStatus === 'In Call').length;
       this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Wrap Up').length;
