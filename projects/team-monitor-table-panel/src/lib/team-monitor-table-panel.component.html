@@ -26,15 +26,14 @@
       <input matInput placeholder="Name, AgentId, Phone etc." (keyup)="applyFilter($event.target.value)">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <a fxFlex="50px" style="cursor: pointer;" matTooltipClass="example-tooltip-red" matTooltip="Export to Excel"
-      matTooltipPosition="left" (click)="ExportTOExcel()">
+    <a fxFlex="50px" style="cursor: pointer;" matTooltip="Export to Excel" (click)="ExportTOExcel()">
       <img
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABmJLR0QA/wD/AP+gvaeTAAADHklEQVRYhe2WXUhUQRTH/zP37r2rlpIfKSlabFBmFFFBZkRkZCFF+RRGFEEfRA9RRmCB9qRkD4U+SD2EUQRREBVBSB+IFhFqRL4pVohYokh+5LreOT2sazt6N2e3e6kH/7AM5+7ZPb89858zC8xrXu6KqSZmNZzMNGDlquYvyEoXpqFzlVxBGGzdWtkWNVhOw4l8zuk1AEMVLCkzrVMzjOWq+QCqWrdUlIcCpV/EOe2IBipGFUs1VT7BAM0dFklSDSWwf6H/FkxXSaKRcY8lKOL7jDHA1ME9ehTnPAqwjOp9uyFELYGSQYTQa7S/Pw4CAiDQ1LPgilBMumaOeDOSh7WF8QIMIGAQwFdlEqL+iGAQViUBvt+Fp1YRDmOzCkJgciwpZzg9yeuNA9M4+noGAhNMZKtyMWAkPJY8RkBCLFDBWIBCsQOaYf7YoKafOSi5Y0KGiveYaDl9E02n6qFzDSDCsU370XXpEQqWrpWh3ASbNvMU4Kj/J+qa7yM3fRlK1xUh0UzA+e2H0NTZhuau9tlddFCS+QUJsBnbd6/tOQ5vKMa5bQexIi0bhqaj/Emd7dY6KbljNp4SQqDs8XVkJKbi+OYSVDXeQu/Qd3u/OagZA9be6IlmPBgASwhwsIiHoPttO7QEA0zj8GfG+cgTxcUySb7wcM6OmZqOq3vP4E33R9xoeYDyoqPIWZRhMy5cNf/sjl0oPAJfahYuP6vHlcYG+CcDqCk5OxvK1XFBMpwvJQul63fh4YcXeP+lA0NjP3Dt5R1szMnDzpX5MpTDYNKVm3Kx8BMR5dkOT9tpL+d4ewLhHkOUHvMPVb/yhkLJ/MGTFRsUSPxlj2TNvJJGY4Uiy81xQVQBoloQpUhQFsWREN7ZUAh2yiLowwKMM4AF3WF+G0c0qAzssxwraPGeNTUCKPtjEmfghgZu6NNwUYnQ0Xf33epQqPQPlpn6BJ+jFuMM4Dw2KBspgnkm2Vwb4xBQSEpgYMxZZytIcdCQ5S4GAAaphhIYERoB8rtDFBQDeyrHiko9ULBEM6xVziMBGthA7+237W5897zmFUm/AC6NgqcI/MAYAAAAAElFTkSuQmCC" />
     </a>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="example-container mat-elevation-z8" #TABLE>
+<div #TABLE>
   <table mat-table #table matSort [dataSource]="dataSource">
 
     <ng-container matColumnDef="agentId" sticky>
@@ -47,11 +46,11 @@
       <td mat-cell *matCellDef="let row">{{row.name}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="phone">
+    <ng-container matColumnDef="phoneId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
       <td mat-cell *matCellDef="let row">
-        <span *ngIf="row.hasPhone"> {{row.phoneId}} </span>
-        <span class="ml-3" *ngIf="teamLead">
+        <span *ngIf="row.hasPhone">{{row.phoneId}}</span>
+        <span *ngIf="teamLead">
           <button *ngIf="row.hasPhone" mat-raised-button color="warn" (click)="barge(row.phoneId)">Barge</button>
         </span>
       </td>
@@ -60,16 +59,21 @@
     <ng-container matColumnDef="agentStatus">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Status</th>
       <td mat-cell *matCellDef="let row">
-        <span *ngIf="row.connected !== true" class="white-text-on-gray-background">Offline</span>
+        <span *ngIf="row.connected !== true">Offline</span>
         <span *ngIf="row.connected === true">
-          <span *ngIf="row.agentStatus == 'In Break'" class="white-text-on-gray-background">Not Ready</span>
+          <span *ngIf="row.agentStatus === 'NoPhone' || row.agentStatus === 'Available'">Connected</span>
+          <span *ngIf="row.agentStatus === 'InBreak'" class="white-text-on-gray-background">Not Ready</span>
+          <span *ngIf="row.agentStatus == 'Idle'" class="white-text-on-green-background">Ready</span>
           <span *ngIf="row.agentStatus == 'Ready'" class="white-text-on-green-background">Ready</span>
           <span *ngIf="row.agentSubStatus == 'In Call'" class="white-text-on-red-background">
             {{row.agentStatus}} - Talking</span>
-          <span *ngIf="row.agentSubStatus == 'Wrap Up'" class="white-text-on-gray-background">
+          <span *ngIf="row.agentSubStatus == 'Wrap Up'" class="white-text-on-red-background">
             {{row.agentStatus}} - Wrap Up</span>
-          <span *ngIf="row.agentStatus !== 'In Break' && row.agentStatus !== 'Ready' && row.agentStatus !== 'Busy'">
-            {{row.agentStatus}}</span>
+
+          <!-- <span *ngIf="row.agentStatus !== 'In Break' && row.agentStatus !== 'Ready' && row.agentStatus !== 'Busy'">
+            {{row.agentStatus}}</span> -->
+
+          <span *ngIf="row.agentStatus == ''">Login</span>
         </span>
       </td>
     </ng-container>

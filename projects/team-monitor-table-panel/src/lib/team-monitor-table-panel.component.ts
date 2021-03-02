@@ -20,7 +20,7 @@ export class TeamMonitorTablePanelComponent implements OnInit {
   displayedColumns = [
     'agentId',
     'name',
-    'phone',
+    'phoneId',
     'agentStatus',
     'taskTimestamp',
     'queueName',
@@ -44,14 +44,14 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     this.serverConnection.teamMemberStates.subscribe((data) => {
       this.teamMemberStates = data;
 
+      console.log(data);
+
       this.total = this.teamMemberStates.filter((x) => x.connected === true).length;
       this.inCall = this.teamMemberStates.filter((x) => x.agentSubStatus === 'In Call').length;
       this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Wrap Up').length;
-      this.idle = this.teamMemberStates.filter((x) => x.agentStatus === 'Ready').length;
+      this.idle = this.teamMemberStates.filter((x) => x.agentStatus === 'Idle').length;
       this.offline = this.teamMemberStates.filter((x) => x.agentStatus === 'Offline').length;
-      this.break = this.teamMemberStates.filter((x) => x.agentStatus === 'In Break').length;
-
-      // data = data.filter((x) => x.connected === true);
+      this.break = this.teamMemberStates.filter((x) => x.agentStatus === 'InBreak').length;
 
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
