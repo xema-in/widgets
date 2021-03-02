@@ -10,7 +10,7 @@
       </mat-form-field>
     </small>
 
-    <small class="ml-5">
+    <small>
       <a style="cursor: pointer;" matTooltipClass="example-tooltip-red" matTooltip="Export to Excel"
         matTooltipPosition="left" (click)="ExportTOExcel()">
         <img
@@ -20,7 +20,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="example-container mat-elevation-z8" #TABLE>
+<div class="table-container" #TABLE>
   <table mat-table #table matSort [dataSource]="dataSource">
 
     <ng-container matColumnDef="queue" sticky>
