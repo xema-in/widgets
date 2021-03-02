@@ -61,18 +61,15 @@
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.connected !== true">Offline</span>
         <span *ngIf="row.connected === true">
-          <span *ngIf="row.agentStatus === 'NoPhone' || row.agentStatus === 'Available'">Connected</span>
+          <span *ngIf="row.agentStatus === 'NoPhone' || row.agentStatus === 'NotReady'">Not Ready</span>
           <span *ngIf="row.agentStatus === 'InBreak'" class="white-text-on-gray-background">Not Ready</span>
-          <span *ngIf="row.agentStatus == 'Idle'" class="white-text-on-green-background">Ready</span>
-          <span *ngIf="row.agentStatus == 'Ready'" class="white-text-on-green-background">Ready</span>
-          <span *ngIf="row.agentSubStatus == 'In Call'" class="white-text-on-red-background">
-            {{row.agentStatus}} - Talking</span>
-          <span *ngIf="row.agentSubStatus == 'Wrap Up'" class="white-text-on-red-background">
-            {{row.agentStatus}} - Wrap Up</span>
-
-          <!-- <span *ngIf="row.agentStatus !== 'In Break' && row.agentStatus !== 'Ready' && row.agentStatus !== 'Busy'">
-            {{row.agentStatus}}</span> -->
-
+          <span *ngIf="row.agentStatus === 'Idle'" class="white-text-on-green-background">Ready</span>
+          <span *ngIf="row.agentStatus === 'Busy'" class="white-text-on-red-background">
+            {{row.agentStatus}}
+            <span *ngIf="row.agentSubStatus === 'Preparing'">&nbsp;- Preparing</span>
+            <span *ngIf="row.agentSubStatus === 'Working'">&nbsp;- Talking</span>
+            <span *ngIf="row.agentSubStatus === 'Closing'">&nbsp;- Wrap Up</span>
+          </span>
           <span *ngIf="row.agentStatus == ''">Login</span>
         </span>
       </td>

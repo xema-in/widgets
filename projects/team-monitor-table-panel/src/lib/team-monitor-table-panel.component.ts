@@ -51,7 +51,8 @@ export class TeamMonitorTablePanelComponent implements OnInit {
       this.wrapUp = this.teamMemberStates.filter((x) => x.agentSubStatus === 'Wrap Up').length;
       this.idle = this.teamMemberStates.filter((x) => x.agentStatus === 'Idle').length;
       this.offline = this.teamMemberStates.filter((x) => x.agentStatus === 'Offline').length;
-      this.break = this.teamMemberStates.filter((x) => x.agentStatus === 'InBreak').length;
+      this.break = this.teamMemberStates.filter(
+        (x) => x.agentStatus === 'NoPhone' || x.agentStatus === 'NotReady' || x.agentStatus === 'InBreak').length;
 
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
