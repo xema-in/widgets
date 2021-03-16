@@ -320,6 +320,46 @@
           }
         }
       }
+    },
+    "dialer-monitor-table-panel": {
+      "projectType": "library",
+      "root": "projects/dialer-monitor-table-panel",
+      "sourceRoot": "projects/dialer-monitor-table-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.lib.json",
+            "project": "projects/dialer-monitor-table-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dialer-monitor-table-panel/src/test.ts",
+            "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/dialer-monitor-table-panel/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dialer-monitor-table-panel/tsconfig.lib.json",
+              "projects/dialer-monitor-table-panel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "test"

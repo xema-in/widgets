@@ -1,7 +1,7 @@
 {
-  "name": "@xema/queue-monitor-cards-panel",
-  "version": "0.0.10",
-  "description": "Xema Queue Monitor Cards Panel",
+  "name": "@xema/dialer-monitor-table-panel",
+  "version": "0.0.1",
+  "description": "Xema Dialer Monitor Table Panel",
   "author": {
     "name": "Xema Dev Team",
     "email": "dev@xema.in"

@@ -26,5 +26,6 @@ jobs:
           npm run prod queue-monitor-cards-panel
           npm run prod queue-monitor-table-panel
 
+          npm run prod dialer-monitor-table-panel
 
           npm run prod test

@@ -16,6 +16,10 @@
       "dom"
     ],
     "paths": {
+      "dialer-monitor-table-panel": [
+        "dist/dialer-monitor-table-panel/dialer-monitor-table-panel",
+        "dist/dialer-monitor-table-panel"
+      ],
       "team-monitor-panel": [
         "dist/team-monitor-panel/team-monitor-panel",
         "dist/team-monitor-panel"
