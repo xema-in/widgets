@@ -10,6 +10,7 @@ ng serve test
 NPM Release
 ===========
 
+cd projects/dialer-monitor-table-panel && npm version patch && cd ../..
 cd projects/queue-monitor-cards-panel && npm version patch && cd ../..
 cd projects/queue-monitor-panel && npm version patch && cd ../..
 cd projects/queue-monitor-table-panel && npm version patch && cd ../..
