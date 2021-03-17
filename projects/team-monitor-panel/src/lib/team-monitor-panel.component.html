@@ -35,8 +35,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="mat-elevation-z8" #TABLE>
-  <table mat-table #table matSort [dataSource]="dataSource">
+<div #TABLE>
+  <table mat-table #table matSort [dataSource]="dataSource" class="full-width-table">
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Name</th>

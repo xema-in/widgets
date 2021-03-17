@@ -34,7 +34,7 @@
 </mat-toolbar>
 
 <div #TABLE>
-  <table mat-table #table matSort [dataSource]="dataSource">
+  <table mat-table #table matSort [dataSource]="dataSource" class="full-width-table">
 
     <ng-container matColumnDef="agentId" sticky>
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent Id</th>
