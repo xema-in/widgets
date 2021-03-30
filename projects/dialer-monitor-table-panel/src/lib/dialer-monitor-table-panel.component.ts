@@ -3,6 +3,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServerConnection } from 'jema';
 import { Subscription } from 'rxjs';
+import * as XLSX from 'xlsx';
+import * as moment from 'moment';
 
 @Component({
   selector: 'xe-dialer-monitor-table-panel',
@@ -13,6 +15,7 @@ export class DialerMonitorTablePanelComponent implements OnInit, OnDestroy {
   @Input() serverConnection: ServerConnection;
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild('TABLE') table: ElementRef;
 
   dialerUpdateSubscription: any;
   dialerStates: any;
@@ -43,5 +46,14 @@ export class DialerMonitorTablePanelComponent implements OnInit, OnDestroy {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  ExportTOExcel() {
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
+      this.table.nativeElement
+    );
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    const now = moment().format('MMMM Do YYYY, h:mm:ss a');
+    /* save to file */
+    XLSX.writeFile(wb, 'DialersStatus_' + now + '.xlsx');
+  }
 }

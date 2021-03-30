@@ -22,6 +22,7 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     'name',
     'phoneId',
     'agentStatus',
+    'callerId',
     'taskTimestamp',
     'queueName',
     'breakTimestamp',
