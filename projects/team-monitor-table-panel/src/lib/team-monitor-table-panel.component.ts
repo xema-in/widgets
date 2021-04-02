@@ -29,7 +29,6 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     'breakReason',
   ];
   @Input() serverConnection: ServerConnection;
-  @Input() teamLead: boolean;
 
   teamMemberStates: Array<TeamMemberState> = [];
   login = 0;

@@ -50,8 +50,8 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.hasPhone">{{row.phoneId}}</span>
-        <span *ngIf="teamLead">
-          <button *ngIf="row.hasPhone" mat-raised-button color="warn" (click)="barge(row.phoneId)">Barge</button>
+        <span *ngIf="row.hasPhone">
+          <button mat-raised-button color="warn" (click)="barge(row.phoneId)">Barge</button>
         </span>
       </td>
     </ng-container>
