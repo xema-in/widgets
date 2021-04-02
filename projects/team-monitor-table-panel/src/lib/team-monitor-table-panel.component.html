@@ -26,7 +26,8 @@
       <input matInput placeholder="Name, AgentId, Phone etc." (keyup)="applyFilter($event.target.value)">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <a fxFlex="50px" style="cursor: pointer;" matTooltip="Export to Excel" (click)="ExportTOExcel()">
+    <a fxFlex="50px" style="cursor: pointer;" matTooltipPosition="left" matTooltipClass="example-tooltip-red"
+      matTooltip="Export to Excel" (click)="ExportTOExcel()">
       <img
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABmJLR0QA/wD/AP+gvaeTAAADHklEQVRYhe2WXUhUQRTH/zP37r2rlpIfKSlabFBmFFFBZkRkZCFF+RRGFEEfRA9RRmCB9qRkD4U+SD2EUQRREBVBSB+IFhFqRL4pVohYokh+5LreOT2sazt6N2e3e6kH/7AM5+7ZPb89858zC8xrXu6KqSZmNZzMNGDlquYvyEoXpqFzlVxBGGzdWtkWNVhOw4l8zuk1AEMVLCkzrVMzjOWq+QCqWrdUlIcCpV/EOe2IBipGFUs1VT7BAM0dFklSDSWwf6H/FkxXSaKRcY8lKOL7jDHA1ME9ehTnPAqwjOp9uyFELYGSQYTQa7S/Pw4CAiDQ1LPgilBMumaOeDOSh7WF8QIMIGAQwFdlEqL+iGAQViUBvt+Fp1YRDmOzCkJgciwpZzg9yeuNA9M4+noGAhNMZKtyMWAkPJY8RkBCLFDBWIBCsQOaYf7YoKafOSi5Y0KGiveYaDl9E02n6qFzDSDCsU370XXpEQqWrpWh3ASbNvMU4Kj/J+qa7yM3fRlK1xUh0UzA+e2H0NTZhuau9tlddFCS+QUJsBnbd6/tOQ5vKMa5bQexIi0bhqaj/Emd7dY6KbljNp4SQqDs8XVkJKbi+OYSVDXeQu/Qd3u/OagZA9be6IlmPBgASwhwsIiHoPttO7QEA0zj8GfG+cgTxcUySb7wcM6OmZqOq3vP4E33R9xoeYDyoqPIWZRhMy5cNf/sjl0oPAJfahYuP6vHlcYG+CcDqCk5OxvK1XFBMpwvJQul63fh4YcXeP+lA0NjP3Dt5R1szMnDzpX5MpTDYNKVm3Kx8BMR5dkOT9tpL+d4ewLhHkOUHvMPVb/yhkLJ/MGTFRsUSPxlj2TNvJJGY4Uiy81xQVQBoloQpUhQFsWREN7ZUAh2yiLowwKMM4AF3WF+G0c0qAzssxwraPGeNTUCKPtjEmfghgZu6NNwUYnQ0Xf33epQqPQPlpn6BJ+jFuMM4Dw2KBspgnkm2Vwb4xBQSEpgYMxZZytIcdCQ5S4GAAaphhIYERoB8rtDFBQDeyrHiko9ULBEM6xVziMBGthA7+237W5897zmFUm/AC6NgqcI/MAYAAAAAElFTkSuQmCC" />
     </a>
@@ -50,9 +51,6 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.hasPhone">{{row.phoneId}}</span>
-        <span *ngIf="row.hasPhone">
-          <button mat-raised-button color="warn" (click)="barge(row.phoneId)">Barge</button>
-        </span>
       </td>
     </ng-container>
 
@@ -109,6 +107,18 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Break Reason</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="row.inBreak">{{row.breakReason}}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+      <td mat-cell *matCellDef="let row">
+        <span *ngIf="!teamLead">
+          <button *ngIf="row.hasPhone" mat-button (click)="spy(row.phoneId)">Listen</button>
+        </span>
+        <span *ngIf="teamLead">
+          <button *ngIf="row.hasPhone" mat-button (click)="whisper(row.phoneId)">Coach</button>
+        </span>
       </td>
     </ng-container>
 
