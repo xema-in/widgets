@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Authenticator, ServerConnection } from 'jema';
+import { GuiType } from 'jema/lib/_interfaces/gui-type';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
       .getAuthToken({ username: '79692', password: 'Karvy@123' })
       .subscribe((data: any) => {
         this.connected = true;
-        this.serverConnection = new ServerConnection(backend, data.auth_token);
+        this.serverConnection = new ServerConnection(backend, data.auth_token, GuiType.Manager);
         this.serverConnection.connect();
       });
   }
