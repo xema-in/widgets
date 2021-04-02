@@ -1,6 +1,6 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch">
   <div *ngFor="let queueUpdate of queueUpdates">
-    <mat-card fxFlex="330px" class="gutter" *ngIf="queueUpdate.size > 0">
+    <mat-card fxFlex="330px" class="gutter" *ngIf="queueUpdate.size > 0 && queueUpdate.show">
       <div fxLayout="column">
         <div fxLayout="row">
           <span fxFlex="67" class="clip-text">{{queueUpdate.queue}}</span>
