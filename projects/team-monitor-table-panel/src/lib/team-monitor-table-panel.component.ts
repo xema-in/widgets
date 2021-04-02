@@ -15,6 +15,7 @@ import * as moment from 'moment';
 export class TeamMonitorTablePanelComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild('TABLE') table: ElementRef;
+  @Input() teamLead: boolean;
 
   dataSource: any;
   displayedColumns = [
@@ -27,6 +28,7 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     'queueName',
     'breakTimestamp',
     'breakReason',
+    'actions',
   ];
   @Input() serverConnection: ServerConnection;
 
@@ -74,6 +76,14 @@ export class TeamMonitorTablePanelComponent implements OnInit {
 
   barge(targetdeviceid) {
     this.serverConnection.barge(targetdeviceid);
+  }
+
+  whisper(targetdeviceid) {
+    this.serverConnection.whisper(targetdeviceid);
+  }
+
+  spy(targetdeviceid) {
+    this.serverConnection.spy(targetdeviceid);
   }
 
   getAht(hms, aht) {
