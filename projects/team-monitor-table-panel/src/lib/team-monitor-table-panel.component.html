@@ -114,10 +114,10 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="!teamLead">
-          <button *ngIf="row.hasPhone" mat-button (click)="spy(row.phoneId)">Listen</button>
+          <!-- <button *ngIf="row.hasPhone" mat-button (click)="spy(row.phoneId)">Listen</button> -->
         </span>
         <span *ngIf="teamLead">
-          <button *ngIf="row.hasPhone" mat-button (click)="whisper(row.phoneId)">Coach</button>
+          <!-- <button *ngIf="row.hasPhone" mat-button (click)="whisper(row.phoneId)">Coach</button> -->
         </span>
       </td>
     </ng-container>
