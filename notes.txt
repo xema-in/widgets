@@ -49,3 +49,9 @@ ng build xxx-xxx-xxx --prod
 First time publishing may require --access public option.
 Also, publish from component dist folder. ./dist/xxx-xxx-xxx
 npm publish --access public
+
+
+
+-------------
+ng build team-monitor-table-panel --watch
+ng serve test
