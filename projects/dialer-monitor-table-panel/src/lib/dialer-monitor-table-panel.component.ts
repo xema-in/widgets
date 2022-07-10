@@ -2,7 +2,6 @@ import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@ang
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServerConnection } from 'jema';
-import { Subscription } from 'rxjs';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 
@@ -12,10 +11,10 @@ import * as moment from 'moment';
   styleUrls: ['./dialer-monitor-cards-panel.component.scss'],
 })
 export class DialerMonitorTablePanelComponent implements OnInit, OnDestroy {
-  @Input() serverConnection: ServerConnection;
+  @Input() serverConnection!: ServerConnection;
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild('TABLE') table: ElementRef;
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('TABLE') table!: ElementRef;
 
   dialerUpdateSubscription: any;
   dialerStates: any;
@@ -43,9 +42,10 @@ export class DialerMonitorTablePanelComponent implements OnInit, OnDestroy {
     });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: any) {
+    this.dataSource.filter = event.target.value.trim().toLowerCase();
   }
+
   ExportTOExcel() {
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
       this.table.nativeElement
@@ -56,4 +56,5 @@ export class DialerMonitorTablePanelComponent implements OnInit, OnDestroy {
     /* save to file */
     XLSX.writeFile(wb, 'DialersStatus_' + now + '.xlsx');
   }
+
 }

@@ -11,9 +11,7 @@ describe('TeamMonitorTablePanelComponent', () => {
       declarations: [ TeamMonitorTablePanelComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(TeamMonitorTablePanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

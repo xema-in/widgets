@@ -11,9 +11,7 @@ describe('DialerMonitorTablePanelComponent', () => {
       declarations: [ DialerMonitorTablePanelComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(DialerMonitorTablePanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

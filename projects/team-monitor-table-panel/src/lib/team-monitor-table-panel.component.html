@@ -23,7 +23,7 @@
 
     <mat-form-field fxFlex="200px" appearance="standard">
       <mat-label>Filter</mat-label>
-      <input matInput placeholder="Name, AgentId, Phone etc." (keyup)="applyFilter($event.target.value)">
+      <input matInput placeholder="Name, AgentId, Phone etc." (keyup)="applyFilter($event)">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <a fxFlex="50px" style="cursor: pointer;" matTooltipPosition="left" matTooltipClass="example-tooltip-red"

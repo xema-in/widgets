@@ -8,7 +8,7 @@ import { QueueState } from 'jema/lib/_interfaces/queue-state';
   styleUrls: ['./queue-monitor-cards-panel.component.scss'],
 })
 export class QueueMonitorCardsPanelComponent implements OnInit {
-  @Input() serverConnection: ServerConnection;
+  @Input() serverConnection!: ServerConnection;
   queueUpdates: Array<QueueState> = [];
 
   constructor() { }

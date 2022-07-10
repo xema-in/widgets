@@ -18,57 +18,59 @@
             "main": "projects/test/src/main.ts",
             "polyfills": "projects/test/src/polyfills.ts",
             "tsConfig": "projects/test/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "projects/test/src/favicon.ico",
               "projects/test/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/test/src/styles.css"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "projects/test/src/environments/environment.ts",
                   "with": "projects/test/src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "test:build"
-          },
           "configurations": {
             "production": {
               "browserTarget": "test:build:production"
+            },
+            "development": {
+              "browserTarget": "test:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -88,235 +90,9 @@
               "projects/test/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/test/src/styles.css"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/test/tsconfig.app.json",
-              "projects/test/tsconfig.spec.json",
-              "projects/test/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/test/e2e/protractor.conf.js",
-            "devServerTarget": "test:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "test:serve:production"
-            }
-          }
-        }
-      }
-    },
-    "team-monitor-panel": {
-      "projectType": "library",
-      "root": "projects/team-monitor-panel",
-      "sourceRoot": "projects/team-monitor-panel/src",
-      "prefix": "xe",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/team-monitor-panel/tsconfig.lib.json",
-            "project": "projects/team-monitor-panel/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/team-monitor-panel/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/team-monitor-panel/src/test.ts",
-            "tsConfig": "projects/team-monitor-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/team-monitor-panel/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/team-monitor-panel/tsconfig.lib.json",
-              "projects/team-monitor-panel/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "queue-monitor-panel": {
-      "projectType": "library",
-      "root": "projects/queue-monitor-panel",
-      "sourceRoot": "projects/queue-monitor-panel/src",
-      "prefix": "xe",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/queue-monitor-panel/tsconfig.lib.json",
-            "project": "projects/queue-monitor-panel/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/queue-monitor-panel/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/queue-monitor-panel/src/test.ts",
-            "tsConfig": "projects/queue-monitor-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-panel/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/queue-monitor-panel/tsconfig.lib.json",
-              "projects/queue-monitor-panel/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "team-monitor-table-panel": {
-      "projectType": "library",
-      "root": "projects/team-monitor-table-panel",
-      "sourceRoot": "projects/team-monitor-table-panel/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/team-monitor-table-panel/tsconfig.lib.json",
-            "project": "projects/team-monitor-table-panel/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/team-monitor-table-panel/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/team-monitor-table-panel/src/test.ts",
-            "tsConfig": "projects/team-monitor-table-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/team-monitor-table-panel/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/team-monitor-table-panel/tsconfig.lib.json",
-              "projects/team-monitor-table-panel/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "queue-monitor-cards-panel": {
-      "projectType": "library",
-      "root": "projects/queue-monitor-cards-panel",
-      "sourceRoot": "projects/queue-monitor-cards-panel/src",
-      "prefix": "xe",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.lib.json",
-            "project": "projects/queue-monitor-cards-panel/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/queue-monitor-cards-panel/src/test.ts",
-            "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-cards-panel/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/queue-monitor-cards-panel/tsconfig.lib.json",
-              "projects/queue-monitor-cards-panel/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "queue-monitor-table-panel": {
-      "projectType": "library",
-      "root": "projects/queue-monitor-table-panel",
-      "sourceRoot": "projects/queue-monitor-table-panel/src",
-      "prefix": "xe",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/queue-monitor-table-panel/tsconfig.lib.json",
-            "project": "projects/queue-monitor-table-panel/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/queue-monitor-table-panel/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/queue-monitor-table-panel/src/test.ts",
-            "tsConfig": "projects/queue-monitor-table-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-table-panel/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/queue-monitor-table-panel/tsconfig.lib.json",
-              "projects/queue-monitor-table-panel/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -330,14 +106,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.lib.json",
             "project": "projects/dialer-monitor-table-panel/ng-package.json"
           },
           "configurations": {
             "production": {
               "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -346,21 +125,163 @@
             "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.spec.json",
             "karmaConfig": "projects/dialer-monitor-table-panel/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+        }
+      }
+    },
+    "queue-monitor-cards-panel": {
+      "projectType": "library",
+      "root": "projects/queue-monitor-cards-panel",
+      "sourceRoot": "projects/queue-monitor-cards-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": [
-              "projects/dialer-monitor-table-panel/tsconfig.lib.json",
-              "projects/dialer-monitor-table-panel/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "project": "projects/queue-monitor-cards-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/queue-monitor-cards-panel/src/test.ts",
+            "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/queue-monitor-cards-panel/karma.conf.js"
+          }
+        }
+      }
+    },
+    "queue-monitor-panel": {
+      "projectType": "library",
+      "root": "projects/queue-monitor-panel",
+      "sourceRoot": "projects/queue-monitor-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/queue-monitor-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/queue-monitor-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/queue-monitor-panel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/queue-monitor-panel/src/test.ts",
+            "tsConfig": "projects/queue-monitor-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/queue-monitor-panel/karma.conf.js"
+          }
+        }
+      }
+    },
+    "queue-monitor-table-panel": {
+      "projectType": "library",
+      "root": "projects/queue-monitor-table-panel",
+      "sourceRoot": "projects/queue-monitor-table-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/queue-monitor-table-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/queue-monitor-table-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/queue-monitor-table-panel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/queue-monitor-table-panel/src/test.ts",
+            "tsConfig": "projects/queue-monitor-table-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/queue-monitor-table-panel/karma.conf.js"
+          }
+        }
+      }
+    },
+    "team-monitor-panel": {
+      "projectType": "library",
+      "root": "projects/team-monitor-panel",
+      "sourceRoot": "projects/team-monitor-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/team-monitor-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/team-monitor-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/team-monitor-panel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-monitor-panel/src/test.ts",
+            "tsConfig": "projects/team-monitor-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/team-monitor-panel/karma.conf.js"
+          }
+        }
+      }
+    },
+    "team-monitor-table-panel": {
+      "projectType": "library",
+      "root": "projects/team-monitor-table-panel",
+      "sourceRoot": "projects/team-monitor-table-panel/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/team-monitor-table-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/team-monitor-table-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/team-monitor-table-panel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-monitor-table-panel/src/test.ts",
+            "tsConfig": "projects/team-monitor-table-panel/tsconfig.spec.json",
+            "karmaConfig": "projects/team-monitor-table-panel/karma.conf.js"
           }
         }
       }
     }
-  },
-  "defaultProject": "test"
+  }
 }

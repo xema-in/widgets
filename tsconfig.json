@@ -1,48 +1,52 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "dialer-monitor-table-panel": [
+        "dist/dialer-monitor-table-panel"
+      ],
+      "queue-monitor-cards-panel": [
+        "dist/queue-monitor-cards-panel"
+      ],
+      "queue-monitor-panel": [
+        "dist/queue-monitor-panel"
+      ],
+      "queue-monitor-table-panel": [
+        "dist/queue-monitor-table-panel"
+      ],
+      "team-monitor-panel": [
+        "dist/team-monitor-panel"
+      ],
+      "team-monitor-table-panel": [
+        "dist/team-monitor-table-panel"
+      ]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2020",
     "module": "es2020",
     "lib": [
-      "es2018",
+      "es2020",
       "dom"
-    ],
-    "paths": {
-      "dialer-monitor-table-panel": [
-        "dist/dialer-monitor-table-panel/dialer-monitor-table-panel",
-        "dist/dialer-monitor-table-panel"
-      ],
-      "team-monitor-panel": [
-        "dist/team-monitor-panel/team-monitor-panel",
-        "dist/team-monitor-panel"
-      ],
-      "queue-monitor-panel": [
-        "dist/queue-monitor-panel/queue-monitor-panel",
-        "dist/queue-monitor-panel"
-      ],
-      "team-monitor-table-panel": [
-        "dist/team-monitor-table-panel/team-monitor-table-panel",
-        "dist/team-monitor-table-panel"
-      ],
-      "queue-monitor-cards-panel": [
-        "dist/queue-monitor-cards-panel/queue-monitor-cards-panel",
-        "dist/queue-monitor-cards-panel"
-      ],
-      "queue-monitor-table-panel": [
-        "dist/queue-monitor-table-panel/queue-monitor-table-panel",
-        "dist/queue-monitor-table-panel"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
-    "strictTemplates": false
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }
