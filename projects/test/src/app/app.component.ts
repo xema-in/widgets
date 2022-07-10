@@ -9,7 +9,7 @@ import { GuiType } from 'jema/lib/_interfaces/gui-type';
 })
 export class AppComponent implements OnInit {
   title = 'test';
-  serverConnection: ServerConnection;
+  serverConnection!: ServerConnection;
   connected = false;
 
   ngOnInit(): void {
