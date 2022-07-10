@@ -14,10 +14,10 @@ import * as moment from 'moment';
   encapsulation: ViewEncapsulation.None,
 })
 export class TeamMonitorPanelComponent implements OnInit {
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @ViewChild('TABLE') table: ElementRef;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild('TABLE') table!: ElementRef;
 
-  @Input() serverConnection: ServerConnection;
+  @Input() serverConnection!: ServerConnection;
 
   dataSource: any;
   displayedColumns = ['name', 'phoneId', 'agentStatus', 'breakTimestamp', 'taskTimestamp', 'wrapUpTimestamp', 'queueName', 'callUniqueId'];
@@ -48,8 +48,8 @@ export class TeamMonitorPanelComponent implements OnInit {
     });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: any) {
+    this.dataSource.filter = event.target.value.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();

@@ -13,11 +13,11 @@ import { QueueState } from 'jema/lib/_interfaces/queue-state';
   encapsulation: ViewEncapsulation.None,
 })
 export class QueueMonitorTablePanelComponent implements OnInit {
-  @Input() serverConnection: ServerConnection;
+  @Input() serverConnection!: ServerConnection;
   queueUpdates: Array<QueueState> = [];
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild('TABLE') table: ElementRef;
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('TABLE') table!: ElementRef;
 
   dataSource: any;
   displayedColumns = [
@@ -39,8 +39,8 @@ export class QueueMonitorTablePanelComponent implements OnInit {
     });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: any) {
+    this.dataSource.filter = event.target.value.trim().toLowerCase();
   }
 
   ExportTOExcel() {

@@ -13,9 +13,9 @@ import * as moment from 'moment';
   encapsulation: ViewEncapsulation.None,
 })
 export class TeamMonitorTablePanelComponent implements OnInit {
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @ViewChild('TABLE') table: ElementRef;
-  @Input() teamLead: boolean;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild('TABLE') table!: ElementRef;
+  @Input() teamLead!: boolean;
 
   dataSource: any;
   displayedColumns = [
@@ -30,7 +30,7 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     'breakReason',
     'actions',
   ];
-  @Input() serverConnection: ServerConnection;
+  @Input() serverConnection!: ServerConnection;
 
   teamMemberStates: Array<TeamMemberState> = [];
   login = 0;
@@ -59,8 +59,8 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: any) {
+    this.dataSource.filter = event.target.value.trim().toLowerCase();
   }
 
   ExportTOExcel() {
@@ -74,19 +74,19 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     XLSX.writeFile(wb, 'AgentsStatus_' + now + '.xlsx');
   }
 
-  barge(targetdeviceid) {
+  barge(targetdeviceid: any) {
     this.serverConnection.barge(targetdeviceid);
   }
 
-  whisper(targetdeviceid) {
+  whisper(targetdeviceid: any) {
     this.serverConnection.whisper(targetdeviceid);
   }
 
-  spy(targetdeviceid) {
+  spy(targetdeviceid: any) {
     this.serverConnection.spy(targetdeviceid);
   }
 
-  getAht(hms, aht) {
+  getAht(hms: any, aht: any) {
     let seconds = this.ConvertToSeconds(hms);
     if (aht != null && seconds >= aht) {
       return 'danger';
@@ -96,11 +96,11 @@ export class TeamMonitorTablePanelComponent implements OnInit {
     }
   }
 
-  ConvertToSeconds(hms) {
+  ConvertToSeconds(hms: any) {
     let a = hms.trim();
     let tt = a.split(' ');
     let seconds = 0;
-    tt.forEach(t => {
+    tt.forEach((t: any) => {
       switch (t.slice(-1)) {
         case 's':
           seconds += +t.substring(0, t.length - 1);

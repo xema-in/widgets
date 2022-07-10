@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { validateBasis } from '@angular/flex-layout';
 import { ServerConnection } from 'jema';
@@ -11,7 +10,7 @@ import { min } from 'moment';
   styleUrls: ['./queue-monitor-panel.component.scss'],
 })
 export class QueueMonitorPanelComponent implements OnInit {
-  @Input() serverConnection: ServerConnection;
+  @Input() serverConnection!: ServerConnection;
   queueUpdates: Array<any> = [];
 
   constructor() { }

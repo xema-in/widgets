@@ -11,9 +11,7 @@ describe('QueueMonitorPanelComponent', () => {
       declarations: [ QueueMonitorPanelComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(QueueMonitorPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

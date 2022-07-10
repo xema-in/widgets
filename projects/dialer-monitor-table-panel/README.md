@@ -1,6 +1,6 @@
 # DialerMonitorTablePanel
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
 
 ## Code scaffolding
 
