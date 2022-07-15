@@ -1,12 +1,12 @@
 {
-  "name": "dialer-monitor-table-panel",
+  "name": "@xema/dialer-monitor-table-panel",
   "description": "Xema Dialer Monitor Table Panel",
   "author": {
     "name": "Xema Dev Team",
     "email": "dev@xema.in"
   },
   "license": "UNLICENSED",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
