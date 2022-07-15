@@ -1,0 +1,33 @@
+name: audio-player
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/audio-player/package.json"
+
+jobs:
+  publish:
+    env:
+      OUTPUT_PATH: "./dist/$GITHUB_WORKFLOW"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: "https://registry.npmjs.org"
+          scope: "@xema"
+      - run: npm ci
+
+      - run: npm run prod $GITHUB_WORKFLOW
+
+      - run: find ${{env.OUTPUT_PATH}}
+
+      - run: |
+          cd ${{env.OUTPUT_PATH}}
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
