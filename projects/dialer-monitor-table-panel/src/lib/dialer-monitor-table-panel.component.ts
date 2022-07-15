@@ -7,8 +7,8 @@ import * as moment from 'moment';
 
 @Component({
   selector: 'xe-dialer-monitor-table-panel',
-  templateUrl: './dialer-monitor-cards-panel.component.html',
-  styleUrls: ['./dialer-monitor-cards-panel.component.scss'],
+  templateUrl: './dialer-monitor-table-panel.component.html',
+  styleUrls: ['./dialer-monitor-table-panel.component.scss'],
 })
 export class DialerMonitorTablePanelComponent implements OnInit, OnDestroy {
   @Input() serverConnection!: ServerConnection;
