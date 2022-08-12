@@ -34,6 +34,7 @@ ng generate application test
 Library Project
 ---------------
 ng generate library test-panel --prefix xe
+ng generate library audio-player --prefix xe
 
 
 Dependencies in Library
