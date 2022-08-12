@@ -5,7 +5,11 @@
   "projects": {
     "test": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/test",
       "sourceRoot": "projects/test/src",
       "prefix": "app",
@@ -18,12 +22,13 @@
             "main": "projects/test/src/main.ts",
             "polyfills": "projects/test/src/polyfills.ts",
             "tsConfig": "projects/test/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/test/src/favicon.ico",
               "projects/test/src/assets"
             ],
             "styles": [
-              "projects/test/src/styles.css"
+              "projects/test/src/styles.scss"
             ],
             "scripts": []
           },
@@ -85,12 +90,13 @@
             "polyfills": "projects/test/src/polyfills.ts",
             "tsConfig": "projects/test/tsconfig.spec.json",
             "karmaConfig": "projects/test/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/test/src/favicon.ico",
               "projects/test/src/assets"
             ],
             "styles": [
-              "projects/test/src/styles.css"
+              "projects/test/src/styles.scss"
             ],
             "scripts": []
           }
