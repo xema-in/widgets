@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^14.1.2",
     "@angular/platform-browser-dynamic": "^14.1.2",
     "@angular/router": "^14.1.2",
-    "jema": "^0.0.74",
+    "jema": "^0.0.75",
     "material-design-icons": "^3.0.1",
     "moment": "^2.29.4",
     "ngx-timeago": "^2.0.0",
