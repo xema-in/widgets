@@ -13,7 +13,7 @@
     "@angular/material": "^14.0.4",
     "@angular/flex-layout": "^14.0.0-beta.40",
     "rxjs": "~7.5.0",
-    "jema": "^0.0.75",
+    "jema": "^0.0.76",
     "ngx-timeago": "^2.0.0"
   },
   "dependencies": {

@@ -12,7 +12,7 @@
     "@angular/core": "^14.0.0",
     "@angular/flex-layout": "^14.0.0-beta.40",
     "@angular/material": "^14.0.4",
-    "jema": "^0.0.75",
+    "jema": "^0.0.76",
     "ngx-timeago": "^2.0.0",
     "rxjs": "~7.5.0"
   },
