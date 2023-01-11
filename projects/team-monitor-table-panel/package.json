@@ -6,13 +6,13 @@
     "email": "dev@xema.in"
   },
   "license": "UNLICENSED",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/material": "^14.0.4",
     "@angular/flex-layout": "^14.0.0-beta.40",
-    "jema": "^0.0.75",
+    "jema": "^0.0.76",
     "ngx-timeago": "^2.0.0"
   },
   "dependencies": {
