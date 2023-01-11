@@ -19,13 +19,11 @@ jobs:
       - run: |
           npm ci
 
-          npm run prod team-monitor-panel
-          npm run prod team-monitor-table-panel
-
-          npm run prod queue-monitor-panel
-          npm run prod queue-monitor-cards-panel
-          npm run prod queue-monitor-table-panel
-
           npm run prod dialer-monitor-table-panel
 
-          npm run prod test
+          npm run prod queue-monitor-cards-panel
+          npm run prod queue-monitor-panel
+          npm run prod queue-monitor-table-panel
+
+          npm run prod team-monitor-panel
+          npm run prod team-monitor-table-panel
