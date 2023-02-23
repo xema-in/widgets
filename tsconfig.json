@@ -11,6 +11,9 @@
       "dialer-monitor-table-panel": [
         "dist/dialer-monitor-table-panel"
       ],
+      "json-editor": [
+        "dist/json-editor"
+      ],
       "queue-monitor-cards-panel": [
         "dist/queue-monitor-cards-panel"
       ],

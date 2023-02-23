@@ -14,6 +14,7 @@ import { QueueMonitorTablePanelModule } from 'projects/queue-monitor-table-panel
 import { TeamMonitorTablePanelModule } from 'projects/team-monitor-table-panel/src/public-api';
 import { TeamMonitorPanelModule } from 'projects/team-monitor-panel/src/public-api';
 import { DialerMonitorTablePanelModule } from 'projects/dialer-monitor-table-panel/src/public-api';
+import { JsonEditorModule } from 'projects/json-editor/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { DialerMonitorTablePanelModule } from 'projects/dialer-monitor-table-pan
     TeamMonitorTablePanelModule,
     TeamMonitorPanelModule,
     DialerMonitorTablePanelModule,
+    JsonEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

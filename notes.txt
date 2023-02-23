@@ -35,6 +35,7 @@ Library Project
 ---------------
 ng generate library test-panel --prefix xe
 ng generate library audio-player --prefix xe
+ng generate library json-editor --prefix xe
 
 
 Dependencies in Library
