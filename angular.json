@@ -319,6 +319,40 @@
           }
         }
       }
+    },
+    "json-editor": {
+      "projectType": "library",
+      "root": "projects/json-editor",
+      "sourceRoot": "projects/json-editor/src",
+      "prefix": "xe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/json-editor/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/json-editor/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/json-editor/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/json-editor/src/test.ts",
+            "tsConfig": "projects/json-editor/tsconfig.spec.json",
+            "karmaConfig": "projects/json-editor/karma.conf.js"
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
