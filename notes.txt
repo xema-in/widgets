@@ -57,3 +57,15 @@ npm publish --access public
 -------------
 ng build team-monitor-table-panel --watch
 ng serve test
+
+
+
+
+==================
+angular 14 to 15 upgrade
+
+ng update @angular/core@15 @angular/cli@15 @angular-devkit/build-angular@15 --allow-dirty
+ng update @angular/material@15 @angular/cdk@15 @angular/flex-layout@15.0.0-beta.42 --allow-dirty
+
+
+ng generate @angular/material:mdc-migration
