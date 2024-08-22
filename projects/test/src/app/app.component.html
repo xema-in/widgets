@@ -16,8 +16,10 @@
 <xe-dialer-monitor-table-panel *ngIf="connected" [serverConnection]="serverConnection">
 </xe-dialer-monitor-table-panel> -->
 
-<xe-json-editor [data]="initialData" [options]="editorOptions">
+<!-- <xe-json-editor [data]="initialData" [options]="editorOptions">
 
-</xe-json-editor>
+</xe-json-editor> -->
 
-<div>{{ initialData | json }}</div>
+<!-- <div>{{ initialData | json }}</div> -->
+
+<router-outlet />

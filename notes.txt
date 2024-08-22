@@ -1,3 +1,6 @@
+https://angular.dev/tools/libraries/creating-libraries
+
+
 Merge
 =====
 git pull https://github.com/xema-in/widgets.git main
@@ -24,7 +27,7 @@ Project Notes
 Workspace Creation
 ------------------
 ng new widgets --create-application false
-
+ng new widgets --no-create-application
 
 Test Project
 ------------

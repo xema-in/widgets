@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/test",
             "index": "projects/test/src/index.html",
             "browser": "projects/test/src/main.ts",

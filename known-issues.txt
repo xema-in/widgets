@@ -1,0 +1,7 @@
+
+===============================
+
+X [ERROR] File 'E:\xema\widgets\projects\test\src\main.ts' is missing from the TypeScript compilation. [plugin angular-compiler]
+Ensure the file is part of the TypeScript program via the 'files' or 'include' property.
+
+This error is caused by symlinks somehow. Please set the "preserveSymlinks": true in the angular.json file.
