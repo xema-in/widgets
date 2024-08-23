@@ -247,9 +247,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/team-monitor-panel/src/test.ts",
             "tsConfig": "projects/team-monitor-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/team-monitor-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

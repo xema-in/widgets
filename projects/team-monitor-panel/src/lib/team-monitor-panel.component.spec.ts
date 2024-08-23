@@ -8,7 +8,7 @@ describe('TeamMonitorPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamMonitorPanelComponent ]
+      imports: [TeamMonitorPanelComponent]
     })
     .compileComponents();
 

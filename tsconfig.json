@@ -25,6 +25,9 @@
       "dom"
     ],
     "paths": {
+      "team-monitor-panel": [
+        "./dist/team-monitor-panel"
+      ],
       "team-monitor-table-panel": [
         "./dist/team-monitor-table-panel"
       ]
