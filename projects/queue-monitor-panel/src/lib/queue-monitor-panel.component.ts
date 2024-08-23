@@ -1,13 +1,21 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { validateBasis } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
 import { ServerConnection } from 'jema';
-import { QueueState } from 'jema/lib/_interfaces/queue-state';
-import { min } from 'moment';
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'xe-queue-monitor-panel',
+  standalone: true,
+  imports: [
+    CommonModule,
+    TimeagoModule,
+    MatCardModule,
+    FlexLayoutModule,
+  ],
   templateUrl: './queue-monitor-panel.component.html',
-  styleUrls: ['./queue-monitor-panel.component.scss'],
+  styleUrl: './queue-monitor-panel.component.scss',
 })
 export class QueueMonitorPanelComponent implements OnInit {
   @Input() serverConnection!: ServerConnection;

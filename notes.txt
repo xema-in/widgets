@@ -40,6 +40,9 @@ ng generate library test-panel --prefix xe
 ng generate library audio-player --prefix xe
 ng generate library json-editor --prefix xe
 
+ng generate library queue-monitor-table-panel --prefix xe
+ng generate library queue-monitor-panel --prefix xe
+
 
 Dependencies in Library
 -----------------------

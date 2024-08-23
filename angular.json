@@ -185,9 +185,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/queue-monitor-panel/src/test.ts",
             "tsConfig": "projects/queue-monitor-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
@@ -216,9 +218,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/queue-monitor-table-panel/src/test.ts",
             "tsConfig": "projects/queue-monitor-table-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-table-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

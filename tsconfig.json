@@ -25,6 +25,12 @@
       "dom"
     ],
     "paths": {
+      "queue-monitor-panel": [
+        "./dist/queue-monitor-panel"
+      ],
+      "queue-monitor-table-panel": [
+        "./dist/queue-monitor-table-panel"
+      ],
       "team-monitor-panel": [
         "./dist/team-monitor-panel"
       ],
