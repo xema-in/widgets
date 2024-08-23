@@ -1,16 +1,40 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef, Input } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
+import { CommonModule, NgIf } from '@angular/common';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule, MatSort } from '@angular/material/sort';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ServerConnection } from 'jema';
 import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
-import { MatTableDataSource } from '@angular/material/table';
+import moment from 'moment';
+import { TimeagoModule } from 'ngx-timeago';
+
 import * as XLSX from 'xlsx';
-import * as moment from 'moment';
 
 @Component({
   selector: 'xe-team-monitor-table-panel',
+  standalone: true,
+  imports: [
+    NgIf,
+    CommonModule,
+    FlexLayoutModule,
+    TimeagoModule,
+    MatTableModule,
+    MatSortModule,
+    MatIconModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatButtonModule,
+  ],
   templateUrl: './team-monitor-table-panel.component.html',
-  styleUrls: ['./team-monitor-table-panel.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  styleUrl: './team-monitor-table-panel.component.scss'
 })
 export class TeamMonitorTablePanelComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
