@@ -25,6 +25,9 @@
       "dom"
     ],
     "paths": {
+      "queue-monitor-cards-panel": [
+        "./dist/queue-monitor-cards-panel"
+      ],
       "queue-monitor-panel": [
         "./dist/queue-monitor-panel"
       ],

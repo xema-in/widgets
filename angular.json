@@ -154,9 +154,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/queue-monitor-cards-panel/src/test.ts",
             "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-cards-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
