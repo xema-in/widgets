@@ -321,9 +321,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/audio-player/src/test.ts",
             "tsConfig": "projects/audio-player/tsconfig.spec.json",
-            "karmaConfig": "projects/audio-player/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

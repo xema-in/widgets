@@ -25,6 +25,9 @@
       "dom"
     ],
     "paths": {
+      "audio-player": [
+        "./dist/audio-player"
+      ],
       "dialer-monitor-table-panel": [
         "./dist/dialer-monitor-table-panel"
       ],
