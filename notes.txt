@@ -20,6 +20,8 @@ cd projects/queue-monitor-table-panel && npm version patch && cd ../..
 cd projects/team-monitor-panel && npm version patch && cd ../..
 cd projects/team-monitor-table-panel && npm version patch && cd ../..
 
+cd projects/audio-player && npm version patch && cd ../..
+
 
 Project Notes
 =============
