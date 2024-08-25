@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Track } from './model/track.model';
+import { Track } from './track.model';
 
 @Injectable({
   providedIn: 'root',

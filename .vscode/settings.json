@@ -1,0 +1,12 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports.ts": "always"
+  },
+  "cSpell.words": [
+    "jema",
+    "jsoneditor",
+    "packagr",
+    "timeago",
+    "xema"
+  ]
+}

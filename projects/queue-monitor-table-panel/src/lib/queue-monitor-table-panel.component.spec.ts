@@ -8,7 +8,7 @@ describe('QueueMonitorTablePanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QueueMonitorTablePanelComponent ]
+      imports: [QueueMonitorTablePanelComponent]
     })
     .compileComponents();
 

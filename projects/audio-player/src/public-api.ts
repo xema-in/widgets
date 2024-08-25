@@ -1,7 +1,7 @@
 /*
- * Public API Surface of ngx-audio-player
+ * Public API Surface of audio-player
  */
 
-export * from './lib/component/audio-player.component';
-export * from './lib/model/track.model';
-export * from './lib/audio-player.module';
+export * from './lib/audio-player.service';
+export * from './lib/track.model';
+export * from './lib/audio-player.component';

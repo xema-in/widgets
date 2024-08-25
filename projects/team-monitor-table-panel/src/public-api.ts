@@ -4,4 +4,3 @@
 
 export * from './lib/team-monitor-table-panel.service';
 export * from './lib/team-monitor-table-panel.component';
-export * from './lib/team-monitor-table-panel.module';

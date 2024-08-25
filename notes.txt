@@ -1,3 +1,6 @@
+https://angular.dev/tools/libraries/creating-libraries
+
+
 Merge
 =====
 git pull https://github.com/xema-in/widgets.git main
@@ -17,6 +20,8 @@ cd projects/queue-monitor-table-panel && npm version patch && cd ../..
 cd projects/team-monitor-panel && npm version patch && cd ../..
 cd projects/team-monitor-table-panel && npm version patch && cd ../..
 
+cd projects/audio-player && npm version patch && cd ../..
+
 
 Project Notes
 =============
@@ -24,7 +29,7 @@ Project Notes
 Workspace Creation
 ------------------
 ng new widgets --create-application false
-
+ng new widgets --no-create-application
 
 Test Project
 ------------
@@ -37,6 +42,10 @@ ng generate library test-panel --prefix xe
 ng generate library audio-player --prefix xe
 ng generate library json-editor --prefix xe
 
+ng generate library queue-monitor-table-panel --prefix xe
+ng generate library queue-monitor-panel --prefix xe
+ng generate library queue-monitor-cards-panel --prefix xe
+ng generate library dialer-monitor-table-panel --prefix xe
 
 Dependencies in Library
 -----------------------
@@ -57,3 +66,15 @@ npm publish --access public
 -------------
 ng build team-monitor-table-panel --watch
 ng serve test
+
+
+
+
+==================
+angular 14 to 15 upgrade
+
+ng update @angular/core@15 @angular/cli@15 @angular-devkit/build-angular@15 --allow-dirty
+ng update @angular/material@15 @angular/cdk@15 @angular/flex-layout@15.0.0-beta.42 --allow-dirty
+
+
+ng generate @angular/material:mdc-migration

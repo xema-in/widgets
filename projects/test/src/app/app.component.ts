@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Authenticator, ServerConnection } from 'jema';
-import { GuiType } from 'jema/lib/_interfaces/gui-type';
+import { RouterOutlet } from '@angular/router';
+
+import { ServerConnection } from 'jema';
 import { JSONEditorOptions } from 'jsoneditor';
-import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'test';

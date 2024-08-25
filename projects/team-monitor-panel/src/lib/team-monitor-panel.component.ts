@@ -1,17 +1,48 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServerConnection } from 'jema';
 import { TeamMemberState } from 'jema/lib/_interfaces/team-member-state';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import moment from 'moment';
+import { TimeagoModule } from 'ngx-timeago';
+
 import * as XLSX from 'xlsx';
-import * as moment from 'moment';
 
 @Component({
   selector: 'xe-team-monitor-panel',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FlexLayoutModule,
+    TimeagoModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatChipsModule,
+    MatTooltipModule,
+  ],
   templateUrl: './team-monitor-panel.component.html',
-  styleUrls: ['./team-monitor-panel.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  styleUrl: './team-monitor-panel.component.scss'
 })
 export class TeamMonitorPanelComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort;

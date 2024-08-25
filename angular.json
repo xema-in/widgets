@@ -15,17 +15,22 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/test",
             "index": "projects/test/src/index.html",
-            "main": "projects/test/src/main.ts",
-            "polyfills": "projects/test/src/polyfills.ts",
+            "browser": "projects/test/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/test/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/test/src/favicon.ico",
-              "projects/test/src/assets"
+              {
+                "glob": "**/*",
+                "input": "projects/test/public"
+              }
             ],
             "styles": [
               "projects/test/src/styles.scss"
@@ -42,25 +47,16 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/test/src/environments/environment.ts",
-                  "with": "projects/test/src/environments/environment.prod.ts"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -69,31 +65,31 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "test:build:production"
+              "buildTarget": "test:build:production"
             },
             "development": {
-              "browserTarget": "test:build:development"
+              "buildTarget": "test:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "test:build"
-          }
+          "builder": "@angular-devkit/build-angular:extract-i18n"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/test/src/test.ts",
-            "polyfills": "projects/test/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/test/tsconfig.spec.json",
-            "karmaConfig": "projects/test/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/test/src/favicon.ico",
-              "projects/test/src/assets"
+              {
+                "glob": "**/*",
+                "input": "projects/test/public"
+              }
             ],
             "styles": [
               "projects/test/src/styles.scss"
@@ -127,9 +123,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/dialer-monitor-table-panel/src/test.ts",
             "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/dialer-monitor-table-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
@@ -158,9 +156,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/queue-monitor-cards-panel/src/test.ts",
             "tsConfig": "projects/queue-monitor-cards-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-cards-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
@@ -189,9 +189,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/queue-monitor-panel/src/test.ts",
             "tsConfig": "projects/queue-monitor-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
@@ -220,9 +222,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/queue-monitor-table-panel/src/test.ts",
             "tsConfig": "projects/queue-monitor-table-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/queue-monitor-table-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
@@ -251,9 +255,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/team-monitor-panel/src/test.ts",
             "tsConfig": "projects/team-monitor-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/team-monitor-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
@@ -282,9 +288,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/team-monitor-table-panel/src/test.ts",
             "tsConfig": "projects/team-monitor-table-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/team-monitor-table-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
@@ -313,9 +321,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/audio-player/src/test.ts",
             "tsConfig": "projects/audio-player/tsconfig.spec.json",
-            "karmaConfig": "projects/audio-player/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

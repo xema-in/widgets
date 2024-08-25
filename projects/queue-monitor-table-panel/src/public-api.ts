@@ -4,4 +4,3 @@
 
 export * from './lib/queue-monitor-table-panel.service';
 export * from './lib/queue-monitor-table-panel.component';
-export * from './lib/queue-monitor-table-panel.module';

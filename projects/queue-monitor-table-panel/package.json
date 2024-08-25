@@ -6,17 +6,19 @@
     "email": "dev@xema.in"
   },
   "license": "UNLICENSED",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
-    "@angular/material": "^14.0.4",
-    "@angular/flex-layout": "^14.0.0-beta.40",
-    "rxjs": "~7.5.0",
+    "@angular/common": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/flex-layout": "^15.0.0-beta.42",
+    "@angular/material": "^18.2.0",
+    "@xema/queue-monitor-table-panel": "file:",
     "jema": "^0.0.76",
-    "ngx-timeago": "^2.0.0"
+    "ngx-timeago": "^3.0.0",
+    "rxjs": "~7.8.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "sideEffects": false
 }
