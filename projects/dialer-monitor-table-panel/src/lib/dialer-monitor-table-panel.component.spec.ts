@@ -8,7 +8,7 @@ describe('DialerMonitorTablePanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialerMonitorTablePanelComponent ]
+      imports: [DialerMonitorTablePanelComponent]
     })
     .compileComponents();
 

@@ -43,6 +43,7 @@ ng generate library json-editor --prefix xe
 ng generate library queue-monitor-table-panel --prefix xe
 ng generate library queue-monitor-panel --prefix xe
 ng generate library queue-monitor-cards-panel --prefix xe
+ng generate library dialer-monitor-table-panel --prefix xe
 
 Dependencies in Library
 -----------------------

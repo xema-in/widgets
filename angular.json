@@ -123,9 +123,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/dialer-monitor-table-panel/src/test.ts",
             "tsConfig": "projects/dialer-monitor-table-panel/tsconfig.spec.json",
-            "karmaConfig": "projects/dialer-monitor-table-panel/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
