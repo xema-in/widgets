@@ -1,16 +1,38 @@
-
-import { Component, OnInit, Input, ViewChild, Output, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
-import { Track } from '../model/track.model';
-import { MatSlider } from '@angular/material/slider';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { AudioPlayerService } from '../audio-player.service';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlider, MatSliderModule } from '@angular/material/slider';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Subject } from 'rxjs';
+
+import { Track } from './track.model';
+import { AudioPlayerService } from './audio-player.service';
+import { SecondsToMinutesPipe } from './seconds-to-minutes';
 
 @Component({
   selector: 'mat-advanced-audio-player,npx-audio-player,xe-audio-player',
+  standalone: true,
+  imports: [
+    SecondsToMinutesPipe,
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatSliderModule,
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatIconModule
+  ],
   templateUrl: './audio-player.component.html',
-  styleUrls: ['./audio-player.component.css']
+  styleUrl: './audio-player.component.css'
 })
 export class AudioPlayerComponent implements OnInit, OnChanges {
 
@@ -209,7 +231,7 @@ export class AudioPlayerComponent implements OnInit, OnChanges {
     // Subscribe to playlist observer from AudioPlayerService and
     // update the playlist within MatAdvancedAudioPlayerComponent
     this.audioPlayerService.getPlaylist().subscribe(tracks => {
-      if (tracks !== null && tracks !== []) {
+      if (tracks !== null && tracks.length > 0) {
         this.tracks = tracks;
         this.initialize();
       }
